@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ExistingCustomers from '../component/newBookingComponents/ExistingCustomers';
 import NewCustomerForm from '../component/newBookingComponents/NewCustomerForm';
 import NewBookingDetails from '../component/newBookingComponents/NewBookingDetails';
