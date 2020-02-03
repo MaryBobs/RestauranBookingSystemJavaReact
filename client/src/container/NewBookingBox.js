@@ -31,12 +31,8 @@ class NewBookingBox extends Component {
         const request = new Request();
         request.post('http://localhost:8080/customers', customer)
         .then((customer) => {
-            console.log(customer)
             this.setState({bookingCustomer: customer.id})
         })
-        // .then(() => {
-        //     window.location = '/newbooking'
-        // })
     }
 
     handleNewBooking(booking) {
