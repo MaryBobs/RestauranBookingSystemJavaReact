@@ -5,21 +5,54 @@ class NewBookingForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: ""
-        }
+            date: "",
+            time: "",
+            kidsCovers: "",
+            adultsCovers: ""
+            }
+        this.handleTime = this.handleTime.bind(this);
+        this.handleDate = this.handleDate.bind(this);
+        this.handleKidsCovers = this.handleKidsCovers.bind(this);
+        this.handleAdultsCovers = this.handleAdultsCovers.bind(this);
+        this.handleSubmitBooking = this.handleSubmitBooking.bind(this);
+    }
 
+    handleDate(e) {
+        this.setState({date: e.target.value});
+    }
+
+    handleTime(e) {
+        this.setState({time: e.target.value});
+    }
+
+    handleKidsCovers(e) {
+        this.setState({kidsCovers: e.target.value});
+    }
+
+    handleAdultsCovers(e) {
+        this.setState({adultsCovers: e.target.value});
+    }
+
+    handleSubmitBooking(e) {
+        e.preventDefault();
+        const newBooking = {
+            date: this.state.date,
+            time: this.state.time,
+            kidsCovers: this.state.kidsCovers,
+            adultsCovers: this.state.adultsCovers
+        }
+    this.props.addBooking(newBooking);
     }
 
     render() {
-    return (
-        <div className="booking-form">
+        return (
+        <div>
         <h3>New Booking</h3>
-        <form>
-            <input type="date" />
-            <input type="time" step="900" />
-            <input type="number" placeholder="Adults:" />
-            <input type="number" placeholder="Children" />
-            <input type="text" placeholder="Notes:" />
+        <form onSubmit={this.handleSubmitBooking}>
+            <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
+            <input type="time" step="900" name="time" onChange={this.handleTime} value={this.state.time}/>
+            <input type="number" placeholder="Adults:" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
+            <input type="number" placeholder="Children:" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
             <button type="submit">Save Booking</button>
         </form>
         </div>

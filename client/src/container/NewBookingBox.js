@@ -34,7 +34,7 @@ class NewBookingBox extends Component {
 
     handleNewBooking(booking) {
         const request = new Request();
-        request.post('http://localhost:8080/bookings', booking).then( () => {
+        request.post('http://localhost:8080/bookings', booking).then(() => {
             window.location = '/'
         })
     }
