@@ -12,8 +12,12 @@ const MainContainer = () => {
       <Fragment>
         <NavBar />
       <Switch>
-        <Route path="/bookings" component={BookingSystemBox}/>
-        <Route exact path="/bookings/:id" component={ShowBooking}/>
+        <Route exact path="/bookings" component={BookingSystemBox}/>
+
+        <Route exact path="/bookings/:id">
+          <ShowBooking booking={} />
+        </Route>
+
         <Route path="/newbooking" component={NewBookingBox}/>
       </Switch>
 

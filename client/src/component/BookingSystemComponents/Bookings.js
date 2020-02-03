@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Bookings = (props) => {
@@ -13,7 +13,7 @@ const Bookings = (props) => {
                         <td>{booking.adultsCovers}</td>
                         <td>{booking.customer.firstName} {booking.customer.lastName}</td>
                         <td>{booking.date}</td>
-                        <NavLink to={`/bookings/${props.id}`}><td><button>Manage</button></td></NavLink>
+                        <Link to={`/bookings/${booking.id}`}><button>Manage</button></Link>
                     </tr>
             )
         }

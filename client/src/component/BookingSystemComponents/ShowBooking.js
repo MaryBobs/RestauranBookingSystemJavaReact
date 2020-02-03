@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ShowBooking = (props) => {
-   const booking = props.map(
+   const booking = props.booking.map(
        booking => {
            return (
                <div>
