@@ -1,0 +1,11 @@
+.booking-list{
+    display: flex;
+    align-items: center;
+    background-color: grey;
+    height: 300px;
+    width: 300px;
+}
+
+html{
+    background-color: blue;
+}
