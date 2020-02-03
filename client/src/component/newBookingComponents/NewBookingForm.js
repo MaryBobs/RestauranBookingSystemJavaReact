@@ -8,7 +8,8 @@ class NewBookingForm extends Component {
             date: "",
             time: "",
             kidsCovers: "",
-            adultsCovers: ""
+            adultsCovers: "",
+            bookingCustomer: props.bookedCustomer
             }
         this.handleTime = this.handleTime.bind(this);
         this.handleDate = this.handleDate.bind(this);
@@ -35,11 +36,13 @@ class NewBookingForm extends Component {
 
     handleSubmitBooking(e) {
         e.preventDefault();
+        
         const newBooking = {
             date: this.state.date,
-            time: this.state.time,
+            // time: this.state.time,
             kidsCovers: this.state.kidsCovers,
-            adultsCovers: this.state.adultsCovers
+            adultsCovers: this.state.adultsCovers,
+            customer: this.state.bookingCustomer
         }
     this.props.addBooking(newBooking);
     }

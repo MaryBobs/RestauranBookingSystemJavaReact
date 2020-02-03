@@ -9,11 +9,13 @@ class NewBookingBox extends Component {
     constructor(props){
         super(props);
         this.state = {
-            customers: []
+            customers: [],
+            bookingCustomer: ""
         }
 
         this.handlePost = this.handlePost.bind(this);
         this.handleNewBooking = this.handleNewBooking.bind(this);
+        this.handleCustomer = this.handleCustomer.bind(this);
     }
 
     componentDidMount(){
@@ -39,13 +41,17 @@ class NewBookingBox extends Component {
         })
     }
 
+    handleCustomer(customer) {
+        this.setState({bookingCustomer: customer})
+    }
+
     render () {
         return (
             <div>
             <h1>New Booking</h1>
-            <ExistingCustomers customers={this.state.customers} />
+            <ExistingCustomers customers={this.state.customers} handleSelectedCustomer={this.handleCustomer}/>
             <NewCustomerForm addCustomer={this.handlePost}/>
-            <NewBookingForm addBooking={this.handleNewBooking}/>
+            <NewBookingForm addBooking={this.handleNewBooking} bookedCustomer={this.state.bookingCustomer}/>
             </div>
         )
     }
