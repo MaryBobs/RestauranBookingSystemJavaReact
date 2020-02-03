@@ -6,10 +6,12 @@ class NewCustomerForm extends Component {
         super(props);
         this.state = {
             firstName: "",
-            surname: ""
+            surname: "",
+            phoneNumber: ""
             }
         this.handleFirstName = this.handleFirstName.bind(this);
         this.handleSurname = this.handleSurname.bind(this);
+        this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -21,11 +23,16 @@ class NewCustomerForm extends Component {
         this.setState({surname: e.target.value});
     }
 
+    handlePhoneNumber(e) {
+        this.setState({phoneNumber: e.target.value});
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const newCustomer = {
             firstName: this.state.firstName,
-            surname: this.state.surname
+            surname: this.state.surname,
+            phoneNumber: this.state.phoneNumber
         }
         this.props.addCustomer(newCustomer);
         }
@@ -38,7 +45,7 @@ class NewCustomerForm extends Component {
         <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="First Name:" name="firstName" onChange={this.handleFirstName} value={this.state.firstName}/>
             <input type="text" placeholder="Surname:" name="surname" onChange={this.handleSurname} value={this.state.surname}/>
-            <input type="number" placeholder="Phone Number:" />
+            <input type="number" placeholder="Phone Number:" name="phoneNumber" onChange={this.handlePhoneNumber} value={this.state.phoneNumber}/>
             <input type="email" placeholder="E-mail:" />
             <button type="submit">Next</button>
         </form>
