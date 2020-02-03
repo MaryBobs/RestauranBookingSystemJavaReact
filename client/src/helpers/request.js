@@ -19,6 +19,7 @@ class Request {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
       })
+      .then((res) => res.json());
     }
 
     patch(url, payload){

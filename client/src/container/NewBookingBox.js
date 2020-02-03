@@ -10,7 +10,7 @@ class NewBookingBox extends Component {
         super(props);
         this.state = {
             customers: [],
-            bookingCustomer: {}
+            bookingCustomer: ""
         }
 
         this.handlePost = this.handlePost.bind(this);
@@ -29,9 +29,14 @@ class NewBookingBox extends Component {
 
     handlePost(customer) {
         const request = new Request();
-        request.post('http://localhost:8080/customers', customer).then(() => {
-            window.location = '/newbooking'
+        request.post('http://localhost:8080/customers', customer)
+        .then((customer) => {
+            console.log(customer)
+            this.setState({bookingCustomer: customer.id})
         })
+        // .then(() => {
+        //     window.location = '/newbooking'
+        // })
     }
 
     handleNewBooking(booking) {
