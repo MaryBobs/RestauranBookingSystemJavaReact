@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import BookingItemBox from './container/BookingItemBox.js';
-import './style/BookingItemBox.css';
+import MainContainer from './container/MainContainer';
 
-function App() {
-  return (
-    <BookingItemBox></BookingItemBox>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <div>
+      <MainContainer />
+      </div>
+    );
+  }
 }
 
 export default App;

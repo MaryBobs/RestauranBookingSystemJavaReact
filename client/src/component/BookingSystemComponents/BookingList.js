@@ -2,29 +2,22 @@ import React, {Component} from 'react';
 import Bookings from './Bookings'
 import DateFilter from './DateFilter';
 import '../../style/BookingList.css';
+import BookingItemBox from '../../container/BookingItemBox';
 
-class BookingList extends Component {
-    render() {
+const BookingList = (props) => {
+    const BookingList = props.booking.map(booking => {
         return (
-            <div className= "bookings-list">
-                <Bookings></Bookings>
-                <DateFilter></DateFilter>
-                {/* <div>
-                    {props.customers.map((customer, customerId) => {
-                        return (
-                            <Song
-                                key={customerId}
-                                firstName={customer.firstName}
-                                lastName={customer.lastName}
-                                phoneNumber={customer.phoneNumber}
-                                emailAddress={customer.emailAddress}
-                            />
-                        )
-                    })}
-                </div> */}
+            <div>
+                {booking.adultsCovers}      
             </div>
-        )
-    }
-}
+        )       
+    })
 
+    return (
+        <div>
+        {BookingList}
+        </div>
+    )
+    
+}
 export default BookingList;
