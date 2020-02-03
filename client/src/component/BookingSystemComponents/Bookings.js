@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 const Bookings = (props) => {
     if (props.bookings.length === 0) return null;
@@ -6,12 +8,12 @@ const Bookings = (props) => {
     const bookingsList = props.bookings.map(
         booking => {
             return (
-                    <tr>
+                    <tr key={booking.id}>
                         <td>{booking.kidsCovers}</td>
                         <td>{booking.adultsCovers}</td>
                         <td>{booking.customer.firstName} {booking.customer.lastName}</td>
                         <td>{booking.date}</td>
-                        <td><button>Manage</button></td>
+                        <NavLink to={`/bookings/${props.id}`}><td><button>Manage</button></td></NavLink>
                     </tr>
             )
         }

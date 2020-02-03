@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import BookingSystemBox from './BookingSystemBox.js';
 import NewBookingBox from './NewBookingBox.js';
 import NavBar from '../component/NavBar.js';
+import ShowBooking from '../component/BookingSystemComponents/ShowBooking'
 
 const MainContainer = () => {
 
@@ -12,6 +13,7 @@ const MainContainer = () => {
         <NavBar />
       <Switch>
         <Route path="/bookings" component={BookingSystemBox}/>
+        <Route exact path="/bookings/:id" component={ShowBooking}/>
         <Route path="/newbooking" component={NewBookingBox}/>
       </Switch>
 
