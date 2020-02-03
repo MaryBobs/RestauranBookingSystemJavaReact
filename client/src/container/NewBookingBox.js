@@ -10,7 +10,7 @@ class NewBookingBox extends Component {
         super(props);
         this.state = {
             customers: [],
-            bookingCustomer: ""
+            bookingCustomer: {}
         }
 
         this.handlePost = this.handlePost.bind(this);
