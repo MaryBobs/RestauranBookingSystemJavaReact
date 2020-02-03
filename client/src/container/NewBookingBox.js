@@ -21,9 +21,9 @@ class NewBookingBox extends Component {
     componentDidMount(){
         const request = new Request();
 
-        request.get('http://localhost:8080/customers')
+        request.get('http://localhost:8080/customers/all')
         .then((data) => {
-            this.setState({customers: data._embedded.customers})
+            this.setState({customers: data})
         })
     }
 
