@@ -22,6 +22,9 @@ public class Booking {
     @Column(name = "date")
     private Date date;
 
+    @Column(name = "time")
+    private String time;
+
     @JsonIgnoreProperties("bookings")
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
@@ -29,11 +32,20 @@ public class Booking {
 
     public Booking(){};
 
-    public Booking(int kidsCovers, int adultsCovers, Customer customer, int year, int month, int date, int hrs, int min) {
+    public Booking(int kidsCovers, int adultsCovers, Customer customer, int year, int month, int date, String time) {
         this.kidsCovers = kidsCovers;
         this.adultsCovers = adultsCovers;
         this.customer = customer;
-        this.date = new Date(year,month,date,hrs,min);
+        this.date = new Date(year,month,date);
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public Long getId() {
