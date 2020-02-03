@@ -13,5 +13,6 @@ public interface EmbedCustomer {
     Date getDate();
     int getKidsCovers();
     int getAdultsCovers();
+    String getTime();
     Customer getCustomer();
 }
