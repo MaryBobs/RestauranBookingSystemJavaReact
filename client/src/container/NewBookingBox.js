@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ExistingCustomers from '../component/newBookingComponents/ExistingCustomers';
 import NewCustomerForm from '../component/newBookingComponents/NewCustomerForm';
-import NewBookingDetails from '../component/newBookingComponents/NewBookingDetails';
+import NewBookingForm from '../component/newBookingComponents/NewBookingForm';
 import Request from '../helpers/request';
 
 class NewBookingBox extends Component {
@@ -37,7 +37,7 @@ class NewBookingBox extends Component {
             <h1>New Booking</h1>
             <ExistingCustomers customers={this.state.customers} />
             <NewCustomerForm addCustomer={this.handlePost}/>
-            <NewBookingDetails />
+            <NewBookingForm />
             </div>
         )
     }

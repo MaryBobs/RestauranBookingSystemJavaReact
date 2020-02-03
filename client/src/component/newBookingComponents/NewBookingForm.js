@@ -1,6 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const NewBookingDetails = () => {
+class NewBookingForm extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: ""
+        }
+
+    }
+
+    render() {
     return (
         <div className="booking-form">
         <h3>New Booking</h3>
@@ -15,5 +25,6 @@ const NewBookingDetails = () => {
         </div>
     )
 }
+}
 
-export default NewBookingDetails;
+export default NewBookingForm;
