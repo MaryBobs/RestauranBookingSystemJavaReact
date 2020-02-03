@@ -11,32 +11,32 @@ class NewBookingBox extends Component {
         this.state = {
             customers: []
         }
+
+        this.handlePost = this.handlePost.bind(this);
     }
 
-    componentDidMount() {
-        const url = 'http://localhost:8080/customers';
-    
-        fetch(url)
-          .then(res => res.json())
-          .then(customers => this.setState({ customers: customers._embedded.customers }))
-          .catch(err => console.err);
-      }
+    componentDidMount(){
+        const request = new Request();
 
-    // componentDidMount(){
-    //     const request = new Request();
+        request.get('http://localhost:8080/customers')
+        .then((data) => {
+            this.setState({customers: data._embedded.customers})
+        })
+    }
 
-    //     request.get('/customers')
-    //     .then((data) => {
-    //         this.setState({customers: data._embedded})
-    //     })
-    // }
+    handlePost(customer){
+        const request = new Request();
+        request.post('http://localhost:8080/customers', customer).then(() => {
+            window.location = '/newbooking'
+        })
+    }
 
     render () {
         return (
             <div>
             <h1>New Booking</h1>
             <ExistingCustomers customers={this.state.customers} />
-            <NewCustomerForm />
+            <NewCustomerForm addCustomer={this.handlePost}/>
             <NewBookingDetails />
             </div>
         )
