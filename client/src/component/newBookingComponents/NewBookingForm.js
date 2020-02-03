@@ -43,7 +43,7 @@ class NewBookingForm extends Component {
     handleSubmitBooking(e) {
         e.preventDefault();
         const newBooking = {
-            // date: this.state.date,
+            date: this.state.date,
             time: this.state.time,
             kidsCovers: this.state.kidsCovers,
             adultsCovers: this.state.adultsCovers,
@@ -57,8 +57,8 @@ class NewBookingForm extends Component {
         <div>
         <h3>New Booking</h3>
         <form onSubmit={this.handleSubmitBooking}>
-            {/* <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/> */}
-            <input type="text" name="time" onChange={this.handleTime} value={this.state.time}/>
+            <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
+            <input type="time" step="900" name="time" onChange={this.handleTime} value={this.state.time}/>
             <input type="number" placeholder="Adults:" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
             <input type="number" placeholder="Children:" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
             <button type="submit">Save Booking</button>
