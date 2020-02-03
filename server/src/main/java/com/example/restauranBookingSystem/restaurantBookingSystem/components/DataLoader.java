@@ -2,7 +2,7 @@ package com.example.restauranBookingSystem.restaurantBookingSystem.components;
 
 import com.example.restauranBookingSystem.restaurantBookingSystem.models.Booking;
 import com.example.restauranBookingSystem.restaurantBookingSystem.models.Customer;
-import com.example.restauranBookingSystem.restaurantBookingSystem.repository.BookingRepository;
+import com.example.restauranBookingSystem.restaurantBookingSystem.repository.booking.BookingRepository;
 import com.example.restauranBookingSystem.restaurantBookingSystem.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -39,13 +39,13 @@ public class DataLoader implements ApplicationRunner {
         Customer customer4 = new Customer("Eugene", "Hualala", "44444444444", "eugene@gmail.com");
         customerRepository.save(customer4);
 
-        Booking booking1 = new Booking(2,3, customer1, 120, 2,11,12,00);
+        Booking booking1 = new Booking(2,3, customer1, 120, 2,11, "12:00");
         bookingRepository.save(booking1);
 
-        Booking booking2 = new Booking(0,5, customer2, 120, 2,8,17,00);
+        Booking booking2 = new Booking(0,5, customer2, 120, 2,8,"17:00");
         bookingRepository.save(booking2);
 
-        Booking booking3 = new Booking(12,3, customer1, 120, 2,19,18,30);
+        Booking booking3 = new Booking(12,3, customer1, 120, 2,19,"18:30");
         bookingRepository.save(booking3);
 
     }
