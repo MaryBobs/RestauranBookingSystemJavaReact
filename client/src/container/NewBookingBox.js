@@ -13,6 +13,7 @@ class NewBookingBox extends Component {
         }
 
         this.handlePost = this.handlePost.bind(this);
+        this.handleNewBooking = this.handleNewBooking.bind(this);
     }
 
     componentDidMount(){
@@ -24,10 +25,17 @@ class NewBookingBox extends Component {
         })
     }
 
-    handlePost(customer){
+    handlePost(customer) {
         const request = new Request();
         request.post('http://localhost:8080/customers', customer).then(() => {
             window.location = '/newbooking'
+        })
+    }
+
+    handleNewBooking(booking) {
+        const request = new Request();
+        request.post('http://localhost:8080/bookings', booking).then( () => {
+            window.location = '/'
         })
     }
 
@@ -37,7 +45,7 @@ class NewBookingBox extends Component {
             <h1>New Booking</h1>
             <ExistingCustomers customers={this.state.customers} />
             <NewCustomerForm addCustomer={this.handlePost}/>
-            <NewBookingForm />
+            <NewBookingForm addBooking={this.handleNewBooking}/>
             </div>
         )
     }
