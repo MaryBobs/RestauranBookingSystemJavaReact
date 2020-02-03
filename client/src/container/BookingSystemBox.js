@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Bookings from '../component/BookingSystemComponents/Bookings';
 import Request from '../helpers/request';
 
@@ -20,12 +19,19 @@ class BookingSystemBox extends Component {
         })
     }
 
+    findBookingById(id){
+        return this.state.bookings.find((booking) => {
+            return booking.id === parseInt(id)
+        });
+    }
+
+
     render (){
         return (
             <div>
                 <h1>Upcoming Bookings</h1>
                 <Bookings bookings = {this.state.bookings}/>
-
+                
             </div>
         )
     }

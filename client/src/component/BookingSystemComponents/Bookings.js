@@ -18,8 +18,12 @@ const Bookings = (props) => {
             )
         }
  )
-    
+
+        
     return(
+        
+
+
         <table>
             <thead>
                 <tr>
