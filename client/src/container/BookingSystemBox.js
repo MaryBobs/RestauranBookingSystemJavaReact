@@ -1,30 +1,31 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import ExistingCustomers from '../component/newBookingComponents/ExistingCustomers';
-import NewCustomerForm from '../component/newBookingComponents/NewCustomerForm';
-import NewBookingDetails from '../component/newBookingComponents/NewBookingDetails';
+import Bookings from '../component/BookingSystemComponents/Bookings';
 import Request from '../helpers/request';
 
 class BookingSystemBox extends Component {
     constructor(props){
         super(props);
         this.state = {
-            customers: []
+            bookings: []
         }
     }
+
     componentDidMount(){
         const request = new Request();
 
-        request.get('http://localhost:8080/customers')
+        request.get('http://localhost:8080/bookings')
         .then((data) => {
-            this.setState({customers: data._embedded.customers})
+            this.setState({bookings: data._embedded.bookings})
         })
     }
+
     render (){
         return (
             <div>
                 <h1>Upcoming Bookings</h1>
-                
+                <Bookings bookings = {this.state.bookings}/>
+
             </div>
         )
     }
