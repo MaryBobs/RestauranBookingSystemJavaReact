@@ -24,7 +24,6 @@ class BookingSystemBox extends Component {
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
-    this.sortLabelData = this.sortLabelData.bind(this);
   }
 
   componentDidMount() {
@@ -72,36 +71,24 @@ class BookingSystemBox extends Component {
     let coversData = []
     this.state.hours.forEach(hour => {
       let foundBooking = false;
+      let total = 0;
       this.state.filteredBookings.forEach(booking => {
-        // console.log(hour.substring(0,2))
-        // console.log(booking.time.substring(0,2))
         if(hour.substring(0,2) === booking.time.substring(0,2)){
-          let total = 0;
           total += booking.adultsCovers + booking.kidsCovers
-          coversData.push(total);
           foundBooking = true;
         }
       })
       if(foundBooking == false){
         coversData.push(0);
+      } else {
+        coversData.push(total);
       }
     })
-    console.log(coversData);
     return coversData;
   } 
 
-  sortLabelData(){
-    let labelData = [];
-    this.state.filteredBookings.forEach(booking => {
-      labelData.push(booking.time)
-    })
-    return labelData;
-  }
-
   setChartData(){
       const coversArray = this.sortCoverData();
-      const labelData = this.sortLabelData();
-      console.log(coversArray);
       this.setState({
           chartdata:{
               labels: this.state.hours,
