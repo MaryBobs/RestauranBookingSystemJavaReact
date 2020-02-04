@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ShowBooking from './ShowBooking';
-import { Line } from 'react-chartjs-2';
-
+import Chart from './Chart';
 
 
 const BookingTable = (props) => {
@@ -26,7 +25,7 @@ const BookingTable = (props) => {
     return(
         
 
-
+        <>
         <table>
             <thead>
                 <tr>
@@ -43,6 +42,8 @@ const BookingTable = (props) => {
                 {bookingsList}
             </tbody>
         </table>
+        <Chart data={props}/>
+        </>
         )
 }
 
