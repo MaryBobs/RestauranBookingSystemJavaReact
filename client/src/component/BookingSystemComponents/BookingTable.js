@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ShowBooking from './ShowBooking';
+import { Line } from 'react-chartjs-2';
+
 
 
 const BookingTable = (props) => {

@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NewBookingBox from './NewBookingBox.js';
 import NavBar from '../component/NavBar.js';
 import Request from '../helpers/request';
-import BookingPage from '../component/bookingSystemComponents/BookingPage';
-import ShowBooking from '../component/bookingSystemComponents/ShowBooking';
+import BookingPage from '../component/BookingSystemComponents/BookingPage';
+import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
 
 class BookingSystemBox extends Component {
   constructor(props) {
