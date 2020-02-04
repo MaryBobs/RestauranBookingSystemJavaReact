@@ -4,6 +4,7 @@ import ExistingCustomers from '../component/newBookingComponents/ExistingCustome
 import NewCustomerForm from '../component/newBookingComponents/NewCustomerForm';
 import NewBookingForm from '../component/newBookingComponents/NewBookingForm';
 import Request from '../helpers/request';
+import './NewBookingBox.css';
 
 class NewBookingBox extends Component {
     constructor(props){
@@ -43,8 +44,13 @@ class NewBookingBox extends Component {
     }
 
     handleCustomer(customer) {
-        this.setState({bookingCustomer: customer})
+        this.setState({bookingCustomer: customer});
+        this.visible();
     }
+
+    visible() {
+        document.getElementById("booking").style.display = "block";
+      }
 
     render () {
         return (
@@ -52,7 +58,9 @@ class NewBookingBox extends Component {
             <h1>New Booking</h1>
             <ExistingCustomers customers={this.state.customers} handleSelectedCustomer={this.handleCustomer}/>
             <NewCustomerForm addCustomer={this.handlePost}/>
+            <div id="booking" >
             <NewBookingForm addBooking={this.handleNewBooking} bookedCustomer={this.state.bookingCustomer}/>
+            </div>
             </div>
         )
     }
