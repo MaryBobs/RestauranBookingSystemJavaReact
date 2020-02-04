@@ -15,16 +15,20 @@ class BookingSystemBox extends Component {
     this.state = {
       bookings: [],
       filteredBookings: [],
-      searchedDate: ""
+      searchedDate: "",
+      chartdata: []
     }
 
     this.setSearchedDate = this.setSearchedDate.bind(this);
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
+    this.sortData = this.sortData.bind(this);
+    this.setChartData = this.setChartData.bind(this);
   }
 
   componentDidMount() {
     const formattedDate = this.getTodayDate();
     this.getSearchedBookings(formattedDate);
+    this.setChartData();
   }
 
   findBookingById(id) {
@@ -52,6 +56,47 @@ class BookingSystemBox extends Component {
     }
   }
 
+
+  sortData(){
+    console.log(this.state.filteredBookings);
+    
+    if(this.state.filteredBookings.size > 0){
+        const coversData =  this.state.filteredBookings.forEach(booking => {
+            console.log(booking);
+            const total = 0;
+            total += booking.adultsCovers + booking.kidsCovers
+            return total;
+        })
+    }
+    return 0
+  } 
+
+  setChartData(){
+      const coversArray = this.sortData();
+      console.log(coversArray);
+      this.setState({
+          chartdata:{
+              labels: ['Monday'],
+              datasets: [
+                  {
+                      label: 'Covers',
+                      data: coversArray,
+                      backgroundColor:[
+                          'rgba(255, 99, 132, 0.6)',
+                          'rgba(54, 162, 235, 0.6)', 
+                          'rgba(255, 206, 85, 0.6)',
+                          'rgba(75, 192, 192, 0.6)',
+                          'rgba(153, 102, 255, 0.6)',
+                          'rgba(255, 159, 64, 0.6)',
+                          'rgba(255, 99, 132, 0.6)'
+                      ]
+                  }
+
+              ]
+          }
+      })
+  }
+
   getSearchedBookings(date){
     const request = new Request();
 
@@ -73,7 +118,7 @@ class BookingSystemBox extends Component {
               <Route exact path="/bookings">
                 <SearchBar setSearchedDate={this.setSearchedDate}/>
                 <BookingPage bookings={this.state.filteredBookings} />
-                <Chart data={this.state.filteredBookings}/>
+                <Chart bookings={this.state.filteredBookings}/>
               </Route>
               <Route path="/bookings/:id" render={routeProps => {
                 return (

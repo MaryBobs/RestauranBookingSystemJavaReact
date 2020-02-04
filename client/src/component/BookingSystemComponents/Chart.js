@@ -9,51 +9,52 @@ class Chart extends Component {
             chartdata: {}
         }
 
-        this.sortData = this.sortData.bind(this);
-        this.setChartData = this.setChartData.bind(this);
+       
     }
 
-    componentDidMount(){
-        this.setChartData();
-    }
+    // componentDidMount(){
+    //     this.setChartData();
+    // }
 
-    sortData(){
-        if(this.props.data.size > 0){
-            const coversData =  this.props.data.map(booking => {
-                console.log(booking);
-                const total = 0;
-                total += (booking.adultsCovers + booking.kidsCovers)
-                return [total];
-            })
-        }
-        return [0] 
-    } 
+    // sortData(){
+    //     console.log(this.props.bookings);
+        
+    //     if(this.props.bookings.size > 0){
+    //         const coversData =  this.props.bookings.forEach(booking => {
+    //             console.log(booking);
+    //             const total = 0;
+    //             total += (booking.adultsCovers + booking.kidsCovers)
+    //             return total;
+    //         })
+    //     }
+    //     return 0
+    // } 
 
-    setChartData(){
-        const coversArray = this.sortData();
-        console.log(coversArray);
-        this.setState({
-            chartdata:{
-                labels: ['Monday' ],
-                datasets: [
-                    {
-                        label: 'Covers',
-                        data: coversArray,
-                        backgroundColor:[
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)', 
-                            'rgba(255, 206, 85, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(153, 102, 255, 0.6)',
-                            'rgba(255, 159, 64, 0.6)',
-                            'rgba(255, 99, 132, 0.6)'
-                        ]
-                    }
+    // setChartData(){
+    //     const coversArray = this.sortData();
+    //     console.log(coversArray);
+    //     this.setState({
+    //         chartdata:{
+    //             labels: ['Monday' ],
+    //             datasets: [
+    //                 {
+    //                     label: 'Covers',
+    //                     data: coversArray,
+    //                     backgroundColor:[
+    //                         'rgba(255, 99, 132, 0.6)',
+    //                         'rgba(54, 162, 235, 0.6)', 
+    //                         'rgba(255, 206, 85, 0.6)',
+    //                         'rgba(75, 192, 192, 0.6)',
+    //                         'rgba(153, 102, 255, 0.6)',
+    //                         'rgba(255, 159, 64, 0.6)',
+    //                         'rgba(255, 99, 132, 0.6)'
+    //                     ]
+    //                 }
 
-                ]
-            }
-        })
-    }
+    //             ]
+    //         }
+    //     })
+    // }
 
 
     render(){
