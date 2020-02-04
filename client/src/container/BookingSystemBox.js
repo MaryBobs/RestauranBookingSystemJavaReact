@@ -5,6 +5,7 @@ import NavBar from '../component/NavBar.js';
 import Request from '../helpers/request';
 import BookingPage from '../component/BookingSystemComponents/BookingPage';
 import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
+import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 
 class BookingSystemBox extends Component {
   constructor(props) {
@@ -35,27 +36,30 @@ class BookingSystemBox extends Component {
       <div>
         <h1>Upcoming Bookings</h1>
         <Router>
-          <Fragment>
-            <NavBar />
-            <Switch>
-              <Route exact path="/bookings">
+        <Fragment>
+        <NavBar />
+        <Switch>
+
+            <Route exact path="/bookings">
                 <BookingPage bookings={this.state.bookings} />
-              </Route>
-              <Route path="/bookings/:id" render={routeProps => {
-                return (
-                  <ShowBooking booking={this.state.bookings.find(booking => {
-                    return booking.id === parseInt(routeProps.match.params.id);
-                  })} />
-                )
-              }}>
-                
-                </Route>
+            </Route>
+
+            <Route exact path="/bookings/:id" render={(props) => {
+                const booking = this.findBookingById(props.match.params.id);
+                return <ShowBooking booking={booking} />
+            }}/>
+            
+            <Route exact path="/bookings/:id/edit" render={(props) => {
+                const id = props.match.params.id
+                const booking = this.findBookingById(id);
+                return <EditBookingForm booking={booking} />
+            }} />
+
               <Route path="/newbooking" component={NewBookingBox} />
+            
             </Switch>
-
-
-          </Fragment>
-        </Router>
+            </Fragment>
+            </Router>
 
       </div>
     )
