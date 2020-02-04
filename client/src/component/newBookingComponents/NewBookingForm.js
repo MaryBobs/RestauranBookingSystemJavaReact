@@ -34,9 +34,9 @@ class NewBookingForm extends Component {
         this.setState({adultsCovers: e.target.value});
     }
 
-    static getDerivedStateFromProps(cust) {
+    static getDerivedStateFromProps(props) {
         return {
-            bookingCustomer: cust.bookedCustomer
+            bookingCustomer: props.bookedCustomer
         }
     }
 
@@ -51,6 +51,8 @@ class NewBookingForm extends Component {
         }
     this.props.addBooking(newBooking);
     }
+
+  
 
     render() {
         return (
