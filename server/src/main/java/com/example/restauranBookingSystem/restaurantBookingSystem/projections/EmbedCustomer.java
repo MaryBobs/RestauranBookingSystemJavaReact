@@ -4,8 +4,8 @@ import com.example.restauranBookingSystem.restaurantBookingSystem.models.Booking
 import com.example.restauranBookingSystem.restaurantBookingSystem.models.Customer;
 import org.springframework.data.rest.core.config.Projection;
 
-import java.util.Date;
-import java.util.List;
+import java.sql.Date;
+
 
 @Projection(name = "embedCustomer", types = Booking.class)
 public interface EmbedCustomer {
