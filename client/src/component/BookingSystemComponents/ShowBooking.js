@@ -1,21 +1,17 @@
 import React from 'react';
 
 
-const ShowBooking = (props) => {
-   const booking = props.booking.map(
-       booking => {
-           return (
-               <div>
-           <h2>Id: {booking.id}</h2>
-       <h3>Date: {booking.date}</h3>
-       <h3>Covers: Kids: {booking.kidsCovers}  Adults: {booking.adultsCovers}</h3>
-       <h3>Customer: {booking.customer.firstName} {booking.customer.lastName}</h3>
-       <h3>Email:{booking.customer.email} </h3>
-           <h3>Contact Number: {booking.customer.phoneNumber}</h3>
-       </div>
-           )
-       }
-   )
+const ShowBooking = ({booking}) => {
+    return (
+        <div>
+            <h2>Id: {booking.id}</h2>
+            <h3>Date: {booking.date}</h3>
+            <h3>Covers: Kids: {booking.kidsCovers}  Adults: {booking.adultsCovers}</h3>
+            <h3>Customer: {booking.customer.firstName} {booking.customer.lastName}</h3>
+            <h3>Email:{booking.customer.email} </h3>
+            <h3>Contact Number: {booking.customer.phoneNumber}</h3>
+        </div>
+    )
 }
 
 export default ShowBooking;

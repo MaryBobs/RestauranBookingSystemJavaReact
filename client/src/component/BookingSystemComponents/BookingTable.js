@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ShowBooking from './ShowBooking';
 
 
-const Bookings = (props) => {
+const BookingTable = (props) => {
     if (props.bookings.length === 0) return null;
 
     const bookingsList = props.bookings.map(
@@ -36,10 +37,11 @@ const Bookings = (props) => {
                 </tr>
             </thead>
             <tbody>
+
                 {bookingsList}
             </tbody>
         </table>
         )
 }
 
-export default Bookings;
+export default BookingTable;
