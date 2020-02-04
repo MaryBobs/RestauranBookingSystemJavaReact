@@ -19,7 +19,8 @@ class EditBookingForm extends Component {
                 time: e.target.time.value,
                 kidsCovers: e.target.kidsCovers.value,
                 adultsCovers: e.target.adultsCovers.value,
-                customer: this.props.booking.customer
+                customer: 'http://localhost:8080/customers/'+this.props.booking.customer.id
+                // this.props.booking.customer
             }
             this.props.handleUpdate(booking, this.props.booking.id)
         }
