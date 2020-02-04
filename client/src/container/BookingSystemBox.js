@@ -72,18 +72,16 @@ class BookingSystemBox extends Component {
                 <SearchBar setSearchedDate={this.setSearchedDate}/>
                 <BookingPage bookings={this.state.filteredBookings} />
               </Route>
-                <Route path="/bookings/:id" render={routeProps => {
-                  return (
-                    <ShowBooking booking={this.state.filteredBookings.find(booking => {
-                      return booking.id === parseInt(routeProps.match.params.id);
-                    })} />
-                  )
-                }}>
-                </Route>
+              <Route path="/bookings/:id" render={routeProps => {
+                return (
+                  <ShowBooking booking={this.state.filteredBookings.find(booking => {
+                    return booking.id === parseInt(routeProps.match.params.id);
+                  })} />
+                )
+              }}>
+              </Route>
               <Route path="/newbooking" component={NewBookingBox} />
             </Switch>
-
-
           </Fragment>
         </Router>
 
