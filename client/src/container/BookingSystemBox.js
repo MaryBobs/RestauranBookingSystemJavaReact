@@ -15,6 +15,7 @@ class BookingSystemBox extends Component {
     }
 
     this.deleteBookingById = this.deleteBookingById.bind(this);
+    this.updateBooking = this.updateBooking.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +41,14 @@ class BookingSystemBox extends Component {
     })
   }
 
+  updateBooking(booking, id){
+      const request = new Request();
+      request.patch()
+      .then(("http://localhost:8080/bookings" + id, booking) => {
+          window.location = "/bookings"
+      })
+  }
+
   render() {
     return (
       <div>
@@ -61,7 +70,7 @@ class BookingSystemBox extends Component {
             <Route exact path="/bookings/:id/edit" render={(props) => {
                 const id = props.match.params.id
                 const booking = this.findBookingById(id);
-                return <EditBookingForm booking={booking} />
+                return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
             }} />
 
               <Route path="/newbooking" component={NewBookingBox} />
