@@ -6,20 +6,39 @@ class Chart extends Component {
     constructor(props){
         super(props);
         this.state = {
+            chartdata: {}
+        }
+
+        this.sortData = this.sortData.bind(this);
+        this.setChartData = this.setChartData.bind(this);
+    }
+
+    componentDidMount(){
+        this.setChartData();
+    }
+
+    sortData(){
+        if(this.props.data.size > 0){
+            const coversData =  this.props.data.map(booking => {
+                console.log(booking);
+                const total = 0;
+                total += (booking.adultsCovers + booking.kidsCovers)
+                return [total];
+            })
+        }
+        return [0] 
+    } 
+
+    setChartData(){
+        const coversArray = this.sortData();
+        console.log(coversArray);
+        this.setState({
             chartdata:{
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday', 'Sunday' ],
+                labels: ['Monday' ],
                 datasets: [
                     {
                         label: 'Covers',
-                        data: [
-                            5, 
-                            8, 
-                            2,
-                            9,
-                            23,
-                            19,
-                            12
-                        ],
+                        data: coversArray,
                         backgroundColor:[
                             'rgba(255, 99, 132, 0.6)',
                             'rgba(54, 162, 235, 0.6)', 
@@ -32,24 +51,8 @@ class Chart extends Component {
                     }
 
                 ]
-            },
-            pieData: {
-                labels: ['Adults', 'Children'], 
-                datasets: [
-                    {
-                        label: 'Adult v Children Covers', 
-                        data: [
-                            60,
-                            40
-                        ],
-                        backgroundColor:[
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)', 
-                        ]
-                    }
-                ]
             }
-        }
+        })
     }
 
 
@@ -72,22 +75,6 @@ class Chart extends Component {
                         position: 'right'
                     }
                      }}
-                />
-                <Pie
-                   data={this.state.pieData} 
-
-                   options={{
-                       title:{
-                           display: true, 
-                           text: 'Adult covers vs Children Covers', 
-                           fontSize: 25
-                       },
-                       legend: {
-                           display: true, 
-                           position: 'top',
-                           align: 'center'
-                       }
-                   }}
                 />
 
 
