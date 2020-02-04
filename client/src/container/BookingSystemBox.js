@@ -111,7 +111,7 @@ class BookingSystemBox extends Component {
           chartdata:{
               labels: this.state.hours,
               datasets: [
-                  {
+                  {   
                       label: 'Covers',
                       data: coversArray,
                       backgroundColor:[
