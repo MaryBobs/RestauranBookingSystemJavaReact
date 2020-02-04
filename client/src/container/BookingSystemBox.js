@@ -6,6 +6,7 @@ import Request from '../helpers/request';
 import BookingPage from '../component/BookingSystemComponents/BookingPage';
 import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
 import Chart from '../component/BookingSystemComponents/Chart';
+import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
 
 
@@ -20,6 +21,8 @@ class BookingSystemBox extends Component {
       hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",]
     }
 
+    this.deleteBookingById = this.deleteBookingById.bind(this);
+    this.updateBooking = this.updateBooking.bind(this);
     this.setSearchedDate = this.setSearchedDate.bind(this);
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
@@ -33,11 +36,26 @@ class BookingSystemBox extends Component {
   }
 
   findBookingById(id) {
-    return this.state.bookings.find((booking) => {
+    return this.state.filteredBookings.find((booking) => {
       return booking.id === parseInt(id)
     });
   }
 
+  deleteBookingById(booking){
+    const request = new Request();
+    request.delete(booking)
+    .then(() => {
+      window.location = "/bookings"
+    })
+  }
+
+  updateBooking(booking, id){
+      const request = new Request();
+      request.patch(`http://localhost:8080/bookings/${id}`, booking)
+      .then(() => {
+          window.location = "/bookings"
+      })
+  }
   getTodayDate(){
     const dateJavascript = new Date();
     const year = dateJavascript.getFullYear();
@@ -117,26 +135,32 @@ class BookingSystemBox extends Component {
       <div>
         <h1>Upcoming Bookings</h1>
         <Router>
-          <Fragment>
-            <NavBar />
-            <Switch>
-              <Route exact path="/bookings">
-                <SearchBar setSearchedDate={this.setSearchedDate}/>
-                <BookingPage bookings={this.state.filteredBookings} />
-                <Chart chartData={this.state.chartdata}/>
-              </Route>
-              <Route path="/bookings/:id" render={routeProps => {
-                return (
-                  <ShowBooking booking={this.state.filteredBookings.find(booking => {
-                    return booking.id === parseInt(routeProps.match.params.id);
-                  })} />
-                )
-              }}>
-              </Route>
-              <Route path="/newbooking" component={NewBookingBox} />
-            </Switch>
-          </Fragment>
-        </Router>
+        <Fragment>
+        <NavBar />
+        <Switch>
+
+          <Route exact path="/bookings">
+              <SearchBar setSearchedDate={this.setSearchedDate}/>
+              <BookingPage bookings={this.state.filteredBookings} />
+              <Chart chartData={this.state.chartdata}/>
+          </Route>
+
+          <Route exact path="/bookings/:id" render={(props) => {
+              const booking = this.findBookingById(props.match.params.id);
+              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById}/>
+          }}/>
+          
+          <Route exact path="/bookings/:id/edit" render={(props) => {
+              const id = props.match.params.id
+              const booking = this.findBookingById(id);
+              return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
+          }} />
+
+          <Route path="/newbooking" component={NewBookingBox} />
+            
+        </Switch>
+      </Fragment>
+    </Router>
 
       </div>
     )

@@ -12,7 +12,7 @@ const ExistingCustomers = (props) => {
     })
 
     function handleCustomer(e) {
-        props.handleSelectedCustomer(e.target.value);
+        props.handleSelectedCustomer(e.target.value)
     }
     
     return (

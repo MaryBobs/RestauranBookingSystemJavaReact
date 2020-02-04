@@ -14,6 +14,7 @@ const BookingTable = (props) => {
                         <td>{booking.adultsCovers}</td>
                         <td>{booking.customer.firstName} {booking.customer.lastName}</td>
                         <td>{booking.date}</td>
+                        <td>{booking.time}</td>
                         <Link to={`/bookings/${booking.id}`}><button>Manage</button></Link>
                     </tr>
             )
@@ -32,7 +33,7 @@ const BookingTable = (props) => {
                     <td>Adults Covers</td>
                     <td>Customer Name</td>
                     <td>Date</td>
-
+                    <td>Time</td>
 
                 </tr>
             </thead>
