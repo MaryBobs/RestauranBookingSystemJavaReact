@@ -2,6 +2,11 @@ import React from 'react';
 
 
 const ShowBooking = ({booking}) => {
+
+    if (!booking) {
+        return "kill me"
+    }
+
     return (
         <div>
             <h2>Id: {booking.id}</h2>
