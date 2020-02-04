@@ -13,6 +13,8 @@ class BookingSystemBox extends Component {
     this.state = {
       bookings: []
     }
+
+    this.deleteBookingById = this.deleteBookingById.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +32,13 @@ class BookingSystemBox extends Component {
     });
   }
 
+  deleteBookingById(booking){
+    const request = new Request();
+    request.delete(booking)
+    .then(() => {
+      window.location = "/bookings"
+    })
+  }
 
   render() {
     return (
@@ -46,7 +55,7 @@ class BookingSystemBox extends Component {
 
             <Route exact path="/bookings/:id" render={(props) => {
                 const booking = this.findBookingById(props.match.params.id);
-                return <ShowBooking booking={booking} />
+                return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById}/>
             }}/>
             
             <Route exact path="/bookings/:id/edit" render={(props) => {
