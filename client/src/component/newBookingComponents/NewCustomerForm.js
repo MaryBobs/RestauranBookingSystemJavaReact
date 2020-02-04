@@ -6,7 +6,7 @@ class NewCustomerForm extends Component {
         super(props);
         this.state = {
             firstName: "",
-            surname: "",
+            lastName: "",
             phoneNumber: "",
             email: ""
             }

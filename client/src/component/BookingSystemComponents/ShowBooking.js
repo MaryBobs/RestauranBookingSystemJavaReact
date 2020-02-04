@@ -15,6 +15,8 @@ const ShowBooking = ({booking}) => {
             <h3>Customer: {booking.customer.firstName} {booking.customer.lastName}</h3>
             <h3>Email:{booking.customer.email} </h3>
             <h3>Contact Number: {booking.customer.phoneNumber}</h3>
+            <button>Edit</button>
+            <button>Deletegit checko</button>
         </div>
     )
 }
