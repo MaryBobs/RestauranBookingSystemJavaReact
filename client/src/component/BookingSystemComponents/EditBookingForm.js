@@ -5,14 +5,11 @@ class EditBookingForm extends Component {
     constructor(props){
         super(props);
         this.state = {
-            customer: this.props.booking.customer
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-        // if (!booking) {
-        //     return "Loading!"
-        // }
+        
         
         handleSubmit(e) {
             e.preventDefault();
@@ -22,16 +19,18 @@ class EditBookingForm extends Component {
                 time: e.target.time.value,
                 kidsCovers: e.target.kidsCovers.value,
                 adultsCovers: e.target.adultsCovers.value,
-                customer: this.customer
+                customer: this.props.booking.customer
             }
             this.props.handleUpdate(booking, this.props.booking.id)
         }
 
         render() {
+            if (!this.props.booking) {
+                return "Loading!"
+            }
         return(
             <div>
             <h1>Edit Booking</h1>
-            {/* <h2>Booking ID: {this.props.booking.id}</h2> */}
             <form onSubmit={this.handleSubmit}>
                 <label>Date:</label>
             <input type="date" name="date" defaultValue={this.props.booking.date}/>
