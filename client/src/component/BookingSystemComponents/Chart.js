@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Pie } from 'react-chartjs-2';
 
 
 class Chart extends Component {
@@ -32,6 +32,22 @@ class Chart extends Component {
                     }
 
                 ]
+            },
+            pieData: {
+                labels: ['Adults', 'Children'], 
+                datasets: [
+                    {
+                        label: 'Adult v Children Covers', 
+                        data: [
+                            60,
+                            40
+                        ],
+                        backgroundColor:[
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)', 
+                        ]
+                    }
+                ]
             }
         }
     }
@@ -57,6 +73,23 @@ class Chart extends Component {
                     }
                      }}
                 />
+                <Pie
+                   data={this.state.pieData} 
+
+                   options={{
+                       title:{
+                           display: true, 
+                           text: 'Adult covers vs Children Covers', 
+                           fontSize: 25
+                       },
+                       legend: {
+                           display: true, 
+                           position: 'top',
+                           align: 'center'
+                       }
+                   }}
+                />
+
 
             </div>
         )
