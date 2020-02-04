@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ShowBooking from './ShowBooking';
-import Chart from './Chart';
 
 
 const BookingTable = (props) => {
@@ -42,7 +41,7 @@ const BookingTable = (props) => {
                 {bookingsList}
             </tbody>
         </table>
-        <Chart data={props}/>
+        
         </>
         )
 }

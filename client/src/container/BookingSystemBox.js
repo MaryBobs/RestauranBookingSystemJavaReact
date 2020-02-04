@@ -5,6 +5,8 @@ import NavBar from '../component/NavBar.js';
 import Request from '../helpers/request';
 import BookingPage from '../component/BookingSystemComponents/BookingPage';
 import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
+import Chart from './Chart';
+
 
 class BookingSystemBox extends Component {
   constructor(props) {
@@ -40,6 +42,7 @@ class BookingSystemBox extends Component {
             <Switch>
               <Route exact path="/bookings">
                 <BookingPage bookings={this.state.bookings} />
+                <Chart data={this.state.bookings}/>
               </Route>
               <Route path="/bookings/:id" render={routeProps => {
                 return (
