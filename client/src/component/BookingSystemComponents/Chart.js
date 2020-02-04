@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
-import { Line, Pie } from 'react-chartjs-2';
+import { Line, Pie, Bar } from 'react-chartjs-2';
 
 
 class Chart extends Component {
     constructor(props){
         super(props);
         this.state = {
-            chartdata: {}
         }
-
-       
     }
 
     // componentDidMount(){
@@ -62,7 +59,7 @@ class Chart extends Component {
             <div className="chart">
 
                 <Line
-                data={this.state.chartdata}
+                data={this.props.chartData}
             
                 options={{ 
                     title:{

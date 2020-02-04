@@ -16,13 +16,15 @@ class BookingSystemBox extends Component {
       bookings: [],
       filteredBookings: [],
       searchedDate: "",
-      chartdata: []
+      chartdata: [],
+      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",]
     }
 
     this.setSearchedDate = this.setSearchedDate.bind(this);
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
-    this.sortData = this.sortData.bind(this);
+    this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
+    this.sortLabelData = this.sortLabelData.bind(this);
   }
 
   componentDidMount() {
@@ -56,27 +58,53 @@ class BookingSystemBox extends Component {
     }
   }
 
+  getSearchedBookings(date) {
+    const request = new Request();
 
-  sortData(){
-    console.log(this.state.filteredBookings);
-    
-    if(this.state.filteredBookings.size > 0){
-        const coversData =  this.state.filteredBookings.forEach(booking => {
-            console.log(booking);
-            const total = 0;
-            total += booking.adultsCovers + booking.kidsCovers
-            return total;
-        })
-    }
-    return 0
+    request.get("http://localhost:8080/bookings/byDate/" + date)
+      .then((data) => {
+        this.setState({ filteredBookings: data })
+      })
+      .then(() => this.setChartData())
+  }
+
+  sortCoverData(){
+    let coversData = []
+    this.state.hours.forEach(hour => {
+      let foundBooking = false;
+      this.state.filteredBookings.forEach(booking => {
+        // console.log(hour.substring(0,2))
+        // console.log(booking.time.substring(0,2))
+        if(hour.substring(0,2) === booking.time.substring(0,2)){
+          let total = 0;
+          total += booking.adultsCovers + booking.kidsCovers
+          coversData.push(total);
+          foundBooking = true;
+        }
+      })
+      if(foundBooking == false){
+        coversData.push(0);
+      }
+    })
+    console.log(coversData);
+    return coversData;
   } 
 
+  sortLabelData(){
+    let labelData = [];
+    this.state.filteredBookings.forEach(booking => {
+      labelData.push(booking.time)
+    })
+    return labelData;
+  }
+
   setChartData(){
-      const coversArray = this.sortData();
+      const coversArray = this.sortCoverData();
+      const labelData = this.sortLabelData();
       console.log(coversArray);
       this.setState({
           chartdata:{
-              labels: ['Monday'],
+              labels: this.state.hours,
               datasets: [
                   {
                       label: 'Covers',
@@ -97,16 +125,6 @@ class BookingSystemBox extends Component {
       })
   }
 
-  getSearchedBookings(date){
-    const request = new Request();
-
-    request.get("http://localhost:8080/bookings/byDate/" + date)
-      .then((data) => {
-        this.setState({ filteredBookings: data })
-      })
-  }
-
-
   render() {
     return (
       <div>
@@ -118,7 +136,7 @@ class BookingSystemBox extends Component {
               <Route exact path="/bookings">
                 <SearchBar setSearchedDate={this.setSearchedDate}/>
                 <BookingPage bookings={this.state.filteredBookings} />
-                <Chart bookings={this.state.filteredBookings}/>
+                <Chart chartData={this.state.chartdata}/>
               </Route>
               <Route path="/bookings/:id" render={routeProps => {
                 return (
