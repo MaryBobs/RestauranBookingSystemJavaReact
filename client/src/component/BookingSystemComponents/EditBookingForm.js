@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditBookingForm = ({booking}) => {
+const EditBookingForm = ({booking, handleBooking}) => {
 
         if (!booking) {
             return "Loading!"
@@ -10,7 +10,7 @@ const EditBookingForm = ({booking}) => {
             <div>
             <h1>Edit Booking</h1>
             <h2>Booking ID: {booking.id}</h2>
-            <form>
+            <form onSubmit={handleBooking}>
                 <label>Date:</label>
             <input type="date" id="date" defaultValue={booking.date}/>
             <label>Time:</label>

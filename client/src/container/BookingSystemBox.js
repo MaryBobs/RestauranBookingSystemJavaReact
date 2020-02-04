@@ -43,8 +43,8 @@ class BookingSystemBox extends Component {
 
   updateBooking(booking, id){
       const request = new Request();
-      request.patch()
-      .then(("http://localhost:8080/bookings" + id, booking) => {
+      request.patch(`http://localhost:8080/bookings/${id}`, booking)
+      .then(() => {
           window.location = "/bookings"
       })
   }
