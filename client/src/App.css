@@ -1,20 +1,55 @@
-/* .chart{
-  background-color: red;
-  width: 80%;
-  height: 500px;
-} */
 /* BookingTable.js */
 #booking-table{
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
+/* searchbar */
 .search-bar{
-  width: 20%;
-  margin-left: 30%;
-  
+  width: 30%;
+  margin-left: 42%;
+  margin-right: 40%;
+}
+
+/* navbar */
+html, body, div, p, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+
+.nav {
+  background: #000;
+  height: 60px; 
+}
+
+
+.nav li {
+  display: inline-block;
+  list-style: none;
+  height: 60px; 
+  line-height: 60px; 
+  padding: 0 40px;
+}
+
+
+.nav li:hover {
+  background: red;
+  transition: background .3s;
+}
+
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
 }
 
 

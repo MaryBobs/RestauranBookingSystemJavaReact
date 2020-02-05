@@ -135,16 +135,17 @@ class BookingSystemBox extends Component {
   render() {
     return (
       <div>
-        <h1>Upcoming Bookings</h1>
         <Router>
         <Fragment>
         <NavBar />
         <Switch>
 
           <Route exact path="/bookings">
-              <BookingPage bookings={this.state.filteredBookings} />
               <SearchBar className="search-bar" setSearchedDate={this.setSearchedDate} />
-              <Chart chartData={this.state.chartdata}/>
+              <Chart chartData={this.state.chartdata} />
+              <BookingPage bookings={this.state.filteredBookings} />
+              
+              
           </Route>
 
           <Route exact path="/bookings/:id" render={(props) => {
