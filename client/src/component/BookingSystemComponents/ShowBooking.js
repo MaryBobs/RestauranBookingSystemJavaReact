@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { Bar } from 'react-chartjs-2';
+import BarChart from './BarChart';
 
 
 
@@ -28,22 +29,7 @@ const ShowBooking = ({booking, deleteBooking, barchartdata}) => {
             <Link to={`/bookings/${booking.id}/edit`}><button>Edit</button></Link>
             <div className="BarChart" style={{position: "relative", width: 500, height:550}}> 
             
-            <Bar 
-            data= {barchartdata}
-            
-            options={{ 
-                title:{
-                    display: true,
-                    text: 'Number of visits',
-                    fontSize: 25
-
-                },
-                legend:{
-                    display: true, 
-                    position: 'right'
-                }
-                 }}
-            />
+            <BarChart/>
             </div>
            
         </div>

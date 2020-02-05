@@ -8,6 +8,7 @@ import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
 import Chart from '../component/BookingSystemComponents/Chart';
 import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
+import BarChart from '../component/BookingSystemComponents/BarChart.js';
 
 
 class BookingSystemBox extends Component {
@@ -17,7 +18,6 @@ class BookingSystemBox extends Component {
       bookings: [],
       filteredBookings: [],
       searchedDate: "",
-      chartdata: [],
       hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",],
       barchartdata: []
       
@@ -29,14 +29,12 @@ class BookingSystemBox extends Component {
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
-    this.setBarChartData = this.setBarChartData.bind(this);
   }
 
   componentDidMount() {
     const formattedDate = this.getTodayDate();
     this.getSearchedBookings(formattedDate);
     this.setChartData();
-    this.setBarChartData();
   }
 
   findBookingById(id) {
@@ -110,9 +108,9 @@ class BookingSystemBox extends Component {
   } 
 
 
-  getNumOfVisit(){
-    return 1;
-  }
+  // getNumOfVisit(){
+  //  return [5];
+  // }
 
 
   setChartData(){
@@ -140,31 +138,31 @@ class BookingSystemBox extends Component {
       })
   }
 
-  setBarChartData(){
-    const numOfVisit = this.getNumOfVisit();
-    this.setState({
-      barchartdata:{
-          labels: 'visit',
-          datasets: [
-              {   
-                  label: 'Visits',
-                  data: numOfVisit,
-                  backgroundColor:[
-                      'rgba(255, 99, 132, 0.6)',
-                      'rgba(54, 162, 235, 0.6)', 
-                      'rgba(255, 206, 85, 0.6)',
-                      'rgba(75, 192, 192, 0.6)',
-                      'rgba(153, 102, 255, 0.6)',
-                      'rgba(255, 159, 64, 0.6)',
-                      'rgba(255, 99, 132, 0.6)'
-                  ]
-              }
+  // setBarChartData(){
+  //   const numOfVisit = this.getNumOfVisit();
+  //   this.setState({
+  //     barchartdata:{
+  //         labels: "Visits",
+  //         datasets: [
+  //             {   
+  //                 label: 'Visits',
+  //                 data: numOfVisit,
+  //                 backgroundColor:[
+  //                     'rgba(255, 99, 132, 0.6)',
+  //                     'rgba(54, 162, 235, 0.6)', 
+  //                     'rgba(255, 206, 85, 0.6)',
+  //                     'rgba(75, 192, 192, 0.6)',
+  //                     'rgba(153, 102, 255, 0.6)',
+  //                     'rgba(255, 159, 64, 0.6)',
+  //                     'rgba(255, 99, 132, 0.6)'
+  //                 ]
+  //             }
 
-          ]
-      }
-  })
+  //         ]
+  //     }
+  // })
 
-  }
+  // }
 
   render() {
     return (
