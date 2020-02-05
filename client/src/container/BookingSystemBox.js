@@ -106,11 +106,6 @@ class BookingSystemBox extends Component {
     })
     return coversData;
   } 
-
-
-
-
-
   setChartData(){
       const coversArray = this.sortCoverData();
       this.setState({
@@ -163,7 +158,6 @@ class BookingSystemBox extends Component {
           }} />
 
           <Route path="/newbooking" component={NewBookingBox} />
-            
         </Switch>
       </Fragment>
     </Router>  
