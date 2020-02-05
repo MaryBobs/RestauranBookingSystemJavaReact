@@ -29,7 +29,6 @@ class BookingSystemBox extends Component {
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
-    this.getNumofVisits = this.getNumofVisits.bind(this);
   }
 
   componentDidMount() {
@@ -136,53 +135,6 @@ class BookingSystemBox extends Component {
           }
       })
   }
-
-  getNumofVisits(id){
-    const count = this.state.bookings.filter(booking => booking.customer.id === id).size();
-    console.log(count)
-    return count
-    // const bookingId = this.state.bookings.map(
-    //   booking => (
-    //     booking.customer.id
-    //   ) 
-    // )
-    //   this.state.bookings.count()
-
-    //map bookings to get ids out. 
-    // check frequency of ids. array.count(num ) 
-
-
-    // state.booking 
-    
-    
-    // booking.customer.id
-  }
-
-  // setBarChartData(){
-  //   const numOfVisit = this.getNumOfVisit();
-  //   this.setState({
-  //     barchartdata:{
-  //         labels: "Visits",
-  //         datasets: [
-  //             {   
-  //                 label: 'Visits',
-  //                 data: numOfVisit,
-  //                 backgroundColor:[
-  //                     'rgba(255, 99, 132, 0.6)',
-  //                     'rgba(54, 162, 235, 0.6)', 
-  //                     'rgba(255, 206, 85, 0.6)',
-  //                     'rgba(75, 192, 192, 0.6)',
-  //                     'rgba(153, 102, 255, 0.6)',
-  //                     'rgba(255, 159, 64, 0.6)',
-  //                     'rgba(255, 99, 132, 0.6)'
-  //                 ]
-  //             }
-
-  //         ]
-  //     }
-  // })
-
-  // }
 
   render() {
     return (
