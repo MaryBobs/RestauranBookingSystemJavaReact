@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../App.css';
 import { Line, Pie, Bar } from 'react-chartjs-2';
 
 
@@ -11,7 +12,7 @@ class Chart extends Component {
 
     render(){
         return (
-            <div className="chart">
+            <div className="chart"style={{position: "relative", width: 500, height:550}} >
 
                 <Line
                 data={this.props.chartData}
