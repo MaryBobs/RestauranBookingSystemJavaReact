@@ -49,7 +49,7 @@ class NewBookingBox extends Component {
     render () {
         return (
             <div>
-            <h1>New Booking</h1>
+            <h1 className="new-booking-title">New Booking</h1>
             <ExistingCustomers customers={this.state.customers} handleSelectedCustomer={this.handleCustomer}/>
             <NewCustomerForm addCustomer={this.handlePost}/>
             <NewBookingForm addBooking={this.handleNewBooking} bookedCustomer={this.state.bookingCustomer}/>

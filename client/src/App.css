@@ -68,6 +68,29 @@ html, body, div, p, ul, li {
   list-style: none;
 }
 
+/* new customer */
+.existing-customers{
+  margin-left: 30px;
+}
+
+.new-booking-title{
+  text-align: center;
+}
+
+.new-customer-title{
+  color: black;
+  margin-left: 30px;
+  padding-top: 20px;
+  font-size: 30px;
+}
+
+.new-booking-btn{
+  width: 130px;
+}
+
+.new-customer-form{
+  margin-left: 30px;
+}
 
 
 
