@@ -9,8 +9,11 @@ class ConfirmBooking extends Component {
     }
         render(){
         return(
-        <div>
+        <div className="successful-booking">
         <h1>Booking Successful!</h1>
+        <p>
+        <img src="/tyrannosaurus.jpg"></img>
+        </p>
         {/* <h3>{booking.adultsCovers}</h3> */}
         {/* <h3>{props.confirmedBooking.date}</h3>
         <h3>{props.confirmedBooking.kidsCovers}</h3> */}

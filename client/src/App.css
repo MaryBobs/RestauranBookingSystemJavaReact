@@ -144,5 +144,17 @@ html, body, div, p, ul, li {
   margin-left: 30px;
 }
 
+/* confirm booking */
+.successful-booking{
+  text-align: center;
+  margin-top: 50px;
+}
 
+.unsuccessful-booking{
+  text-align: center;
+  margin-top: 50px;
+}
 
+.unsuccessful-booking h1{
+  color: red;
+}
