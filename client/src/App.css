@@ -124,8 +124,25 @@ html, body, div, p, ul, li {
   margin-left: 30px;
 }
 
+/* show booking */
 
+.booking-container{
+  margin-top: 20px;
+  margin-left: 30px;
+}
 
+.booking-item{
+  font-size: 20px;
+}
+
+.booking-btn{
+  width: 100px;
+  margin-left: 30px;
+}
+
+.BarChart{
+  margin-left: 30px;
+}
 
 
 

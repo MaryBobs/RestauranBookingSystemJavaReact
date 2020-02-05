@@ -19,16 +19,16 @@ const ShowBooking = ({booking, deleteBooking, barchartdata, bookings}) => {
     
     
     return (
-        <div>
-            <h3>Date: {booking.date}</h3>
-            <h3>Time: {booking.time}</h3>
-            <h3>Covers: Kids: {booking.kidsCovers}  Adults: {booking.adultsCovers}</h3>
-            <h3>Customer: {booking.customer.firstName} {booking.customer.lastName}</h3>
-            <h3>Email:{booking.customer.email} </h3>
-            <h3>Contact Number: {booking.customer.phoneNumber}</h3>
-            <button onClick={deleteThisBooking}>Delete</button>
-            <Link to={`/bookings/${booking.id}/edit`}><button>Edit</button></Link>
-            
+        <div className="booking-container">
+            <h3 className="booking-item">ID: {booking.id}</h3>
+            <h3 className="booking-item">Date: {booking.date}</h3>
+            <h3 className="booking-item">Time: {booking.time}</h3>
+            <h3 className="booking-item">Covers: Kids: {booking.kidsCovers}  Adults: {booking.adultsCovers}</h3>
+            <h3 className="booking-item">Customer: {booking.customer.firstName} {booking.customer.lastName}</h3>
+            <h3 className="booking-item">Email:{booking.customer.email} </h3>
+            <h3 className="booking-item">Contact Number: {booking.customer.phoneNumber}</h3>
+            <button className="booking-btn" onClick={deleteThisBooking}>Delete</button>
+            <Link to={`/bookings/${booking.id}/edit`}><button className="booking-btn">Edit</button></Link>   
             <div className="BarChart" style={{position: "relative", width: 500, height:550}}> 
             <BarChart/>
             </div>
