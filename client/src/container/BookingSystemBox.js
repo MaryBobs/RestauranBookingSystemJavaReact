@@ -9,6 +9,9 @@ import Chart from '../component/BookingSystemComponents/Chart';
 import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
 import '../App.css';
+import About from '../component/About';
+import UpcomingEvents from '../component/BookingSystemComponents/UpcomingEvents.js';
+
 
 
 
@@ -135,17 +138,23 @@ class BookingSystemBox extends Component {
   render() {
     return (
       <div>
+
         <Router>
         <Fragment>
         <NavBar />
         <Switch>
 
+          <Route exact path="/">
+            <div className="home-container">
+            <About/>
+            <UpcomingEvents/>
+            </div>
+          </Route>
+
           <Route exact path="/bookings">
               <SearchBar className="search-bar" setSearchedDate={this.setSearchedDate} />
               <Chart chartData={this.state.chartdata} />
               <BookingPage bookings={this.state.filteredBookings} />
-              
-              
           </Route>
 
           <Route exact path="/bookings/:id" render={(props) => {

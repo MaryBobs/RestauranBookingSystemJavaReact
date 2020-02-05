@@ -11,6 +11,7 @@
   width: 30%;
   margin-left: 42%;
   margin-right: 40%;
+  margin-top: 10px;
 }
 
 /* navbar */
@@ -51,6 +52,22 @@ html, body, div, p, ul, li {
   color: #fff;
   text-decoration: none;
 }
+
+/* home */
+
+.home-container{
+  display: flex;
+  flex-flow: row;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+.Upcoming li{
+  text-decoration: none;
+  list-style: none;
+}
+
 
 
 
