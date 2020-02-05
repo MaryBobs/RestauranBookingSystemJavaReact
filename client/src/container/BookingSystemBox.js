@@ -138,7 +138,7 @@ class BookingSystemBox extends Component {
         <Fragment>
         <NavBar />
         <Switch>
-
+.
           <Route exact path="/bookings">
               <SearchBar setSearchedDate={this.setSearchedDate}/>
               <BookingPage bookings={this.state.filteredBookings} />
