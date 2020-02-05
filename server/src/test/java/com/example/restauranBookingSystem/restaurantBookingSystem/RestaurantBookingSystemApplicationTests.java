@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -34,7 +35,7 @@ class RestaurantBookingSystemApplicationTests {
 
 	@Test
 	void canSaveCustomer(){
-		assertEquals(4, customerRepository.findAll().size());
+		assertEquals(15, customerRepository.findAll().size());
 	}
 
 	@Test
@@ -49,15 +50,22 @@ class RestaurantBookingSystemApplicationTests {
 //		DateFormat sfd = new SimpleDateFormat("dd-MM-YY HH:MM");
 //		System.out.println(sfd.format(booking.getDate()));
 //		System.out.println(customer.getBookings().get(0).getDate());
-		assertEquals(4, bookingRepository.findAll().size());
-		assertEquals(3, customer.getBookings().size());
+		assertEquals(16, bookingRepository.findAll().size());
+		assertEquals(2, customer.getBookings().size());
 	}
 
 	@Test
 	void canGetBookingsByDate(){
-		Date date = new Date(120, 2,8);
-		List<Booking> result = bookingRepository.findByDate(date);
-		assertEquals(1, result.size());
+		Date date = new Date(120, 1,5);
+		List<Booking> result = bookingRepository.findByDate(LocalDate.of(120, 1, 5));
+		assertEquals(4, result.size());
+	}
+
+	@Test
+	void canGetTotalCover(){
+		Booking booking = bookingRepository.getOne(1L);
+		int result = booking.getTotalCovers();
+		assertEquals(5, result);
 	}
 
 }

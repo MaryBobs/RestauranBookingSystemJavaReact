@@ -4,6 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "bookings")
@@ -20,7 +24,7 @@ public class Booking {
     private int adultsCovers;
 
     @Column(name = "date")
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "time")
     private String time;
@@ -36,8 +40,16 @@ public class Booking {
         this.kidsCovers = kidsCovers;
         this.adultsCovers = adultsCovers;
         this.customer = customer;
-        this.date = new Date(year,month,date);
+        this.date = LocalDate.of(year,month,date);
         this.time = time;
+    }
+
+    public Booking(BookingRequest request, Customer customer) {
+        this.kidsCovers = request.getKidsCovers();
+        this.adultsCovers = request.getAdultsCovers();
+        this.customer = customer;
+        this.date = LocalDate.parse(request.getDate());
+        this.time = request.getTime();
     }
 
     public String getTime() {
@@ -61,7 +73,7 @@ public class Booking {
     }
 
     public void setKidsCovers(int kidsCovers) {
-        this.kidsCovers = kidsCovers;
+            this.kidsCovers = kidsCovers;
     }
 
     public int getAdultsCovers() {
@@ -72,11 +84,11 @@ public class Booking {
         this.adultsCovers = adultsCovers;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -86,5 +98,9 @@ public class Booking {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public int getTotalCovers(){
+        return this.adultsCovers + this.kidsCovers;
     }
 }
