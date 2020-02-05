@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class NewBookingForm extends Component {
     
     constructor(props) {
@@ -74,6 +75,7 @@ class NewBookingForm extends Component {
             <button type="submit">Save Booking</button>
         </form>
         <p>{this.props.bookedCustomer.id}</p>
+        
         </div>
     )
 }

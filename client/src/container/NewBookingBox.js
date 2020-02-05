@@ -5,6 +5,8 @@ import NewBookingForm from '../component/newBookingComponents/NewBookingForm';
 import Request from '../helpers/request';
 import './NewBookingBox.css';
 
+
+
 class NewBookingBox extends Component {
     constructor(props){
         super(props);
@@ -14,13 +16,14 @@ class NewBookingBox extends Component {
             times: ["12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45",
             "15:00", "15:15", "15:30", "15:45","16:00", "16:15", "16:30", "16:45","17:00", "17:15", "17:30", "17:45",
             "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45", "20:00", "20:15", "20:30", "20:45",
-            "21:00", "21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45",]
+            "21:00", "21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45",],
+            bookingID: ""
         }
 
         this.handlePost = this.handlePost.bind(this);
         this.handleNewBooking = this.handleNewBooking.bind(this);
         this.handleCustomer = this.handleCustomer.bind(this);
-        this.visibleNewCust = this.visibleNewCust.bind(this)
+        this.visibleNewCust = this.visibleNewCust.bind(this);
 ;    }
 
     componentDidMount(){
@@ -42,10 +45,12 @@ class NewBookingBox extends Component {
 
     handleNewBooking(booking) {
         const request = new Request();
-        request.post('http://localhost:8080/bookings', booking).then(() => {
-            window.location = '/'
+        request.post('http://localhost:8080/bookings', booking)
+        .then(() => {
+            window.location = `/bookings/${booking.id}/confirm`
         })
     }
+    
 
     handleCustomer(customer) {
         this.setState({bookingCustomer: customer})
@@ -62,8 +67,16 @@ class NewBookingBox extends Component {
         document.getElementById("existingCustForm").style.display = "none";
     }
 
+    openModal() {
+        this.setState({ open: true });
+      }
+      closeModal() {
+        this.setState({ open: false });
+      }
+
     render () {
-        return (
+
+           return (
             <div>
             <h1>New Booking</h1>
             <div id="existingCustForm">

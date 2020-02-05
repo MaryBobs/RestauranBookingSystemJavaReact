@@ -8,6 +8,7 @@ import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
 import Chart from '../component/BookingSystemComponents/Chart';
 import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
+import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
 
 
 class BookingSystemBox extends Component {
@@ -39,6 +40,14 @@ class BookingSystemBox extends Component {
     return this.state.filteredBookings.find((booking) => {
       return booking.id === parseInt(id)
     });
+  }
+
+  getBooking(booking) {
+      const request = new Request();
+      request.get(booking)
+      .then(() => {
+        window.location = "/bookings"
+      })
   }
 
   deleteBookingById(booking){
@@ -131,6 +140,8 @@ class BookingSystemBox extends Component {
       })
   }
 
+  
+
   render() {
     return (
       <div>
@@ -148,13 +159,19 @@ class BookingSystemBox extends Component {
 
           <Route exact path="/bookings/:id" render={(props) => {
               const booking = this.findBookingById(props.match.params.id);
-              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById}/>
+              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById} getBooking={this.getBooking}/>
           }}/>
           
           <Route exact path="/bookings/:id/edit" render={(props) => {
               const id = props.match.params.id
               const booking = this.findBookingById(id);
               return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
+          }} />
+
+            <Route exact path="/bookings/:id/confirm" render={(props) => {
+              const id = props.match.params.id
+              const booking = this.findBookingById(id);
+              return <ConfirmBooking booking={booking}/>
           }} />
 
           <Route path="/newbooking" component={NewBookingBox}/>

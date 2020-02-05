@@ -13,6 +13,7 @@ const ShowBooking = ({booking, deleteBooking}) => {
         deleteBooking(url);
     }
     
+    
     return (
         <div>
             <h3>Date: {booking.date}</h3>
