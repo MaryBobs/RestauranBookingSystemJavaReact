@@ -7,15 +7,17 @@ class NewBookingForm extends Component {
         this.state = {
             date: "",
             time: "",
-            kidsCovers: "",
-            adultsCovers: "",
+            kidsCovers: 0,
+            adultsCovers: 0,
             bookingCustomer: ""
+            // available: "disabled"
             }
         this.handleTime = this.handleTime.bind(this);
         this.handleDate = this.handleDate.bind(this);
         this.handleKidsCovers = this.handleKidsCovers.bind(this);
         this.handleAdultsCovers = this.handleAdultsCovers.bind(this);
         this.handleSubmitBooking = this.handleSubmitBooking.bind(this);
+        // this.handleAvailability = this.handleAvailability.bind(this);
     }
 
     handleDate(e) {
@@ -33,6 +35,22 @@ class NewBookingForm extends Component {
     handleAdultsCovers(e) {
         this.setState({adultsCovers: e.target.value});
     }
+
+    // handleAvailability() {
+    //     const request = new Request();
+
+    //     if (this.state.date !== "" && this.state.time !== "") {
+    //         console.log("hi")
+    //         request.get("http://localhost:8080/bookings/byDate/" + this.state.date + "/coversPerHour/" + this.state.time + "/covers/" + (this.state.adultsCovers + this.state.kidsCovers))
+    //         .then((res) => {
+    //             if(res){
+    //                 this.setState({available: "enabled"})
+    //             } else {
+    //                 this.setState({available: "disabled"})
+    //             }
+    //         })
+    //     }
+    // }
 
     static getDerivedStateFromProps(cust) {
         return {
