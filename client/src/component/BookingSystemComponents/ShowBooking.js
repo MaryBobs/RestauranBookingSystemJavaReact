@@ -15,7 +15,6 @@ const ShowBooking = ({booking, deleteBooking}) => {
     
     return (
         <div>
-            <h2>Id: {booking.id}</h2>
             <h3>Date: {booking.date}</h3>
             <h3>Time: {booking.time}</h3>
             <h3>Covers: Kids: {booking.kidsCovers}  Adults: {booking.adultsCovers}</h3>
