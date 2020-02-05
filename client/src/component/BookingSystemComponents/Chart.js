@@ -12,7 +12,7 @@ class Chart extends Component {
 
     render(){
         return (
-            <div className="chart"style={{position: "relative", width: 500, height:550}} >
+            <div className="chart"style={{position: "relative", width: "80%", height:550, marginLeft:"10%", marginRight:"10%", marginTop:"10%"}} >
 
                 <Line
                 data={this.props.chartData}

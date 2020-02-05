@@ -8,6 +8,8 @@ import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
 import Chart from '../component/BookingSystemComponents/Chart';
 import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
+import '../App.css';
+
 
 
 class BookingSystemBox extends Component {
@@ -140,8 +142,8 @@ class BookingSystemBox extends Component {
         <Switch>
 
           <Route exact path="/bookings">
-              <SearchBar setSearchedDate={this.setSearchedDate}/>
               <BookingPage bookings={this.state.filteredBookings} />
+              <SearchBar className="search-bar" setSearchedDate={this.setSearchedDate} />
               <Chart chartData={this.state.chartdata}/>
           </Route>
 

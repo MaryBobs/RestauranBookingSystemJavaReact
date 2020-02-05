@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ShowBooking from './ShowBooking';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../App.css';
+
 
 const BookingTable = (props) => {
     if (props.bookings.length === 0) return null;
@@ -26,7 +28,7 @@ const BookingTable = (props) => {
         
 
         <>
-        <table>
+            <table className="table table-hover" id="booking-table">
             <thead>
                 <tr>
                     <td>Kids Covers</td>
