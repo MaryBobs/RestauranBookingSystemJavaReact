@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css';
 
 
+
 const BookingTable = (props) => {
     if (props.bookings.length === 0) return null;
 

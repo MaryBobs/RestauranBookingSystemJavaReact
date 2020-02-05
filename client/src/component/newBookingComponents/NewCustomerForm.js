@@ -42,6 +42,7 @@ class NewCustomerForm extends Component {
             email: this.state.email
         }
         this.props.addCustomer(newCustomer);
+        this.props.seeForm();
         }
     
 

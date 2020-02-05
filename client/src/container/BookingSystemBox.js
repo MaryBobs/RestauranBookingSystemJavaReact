@@ -15,6 +15,7 @@ import UpcomingEvents from '../component/BookingSystemComponents/UpcomingEvents.
 
 
 
+
 class BookingSystemBox extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +23,9 @@ class BookingSystemBox extends Component {
       bookings: [],
       filteredBookings: [],
       searchedDate: "",
-      chartdata: [],
-      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",]
+      chartdata: {},
+      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]
+
     }
 
     this.deleteBookingById = this.deleteBookingById.bind(this);
@@ -61,6 +63,7 @@ class BookingSystemBox extends Component {
           window.location = "/bookings"
       })
   }
+  
   getTodayDate(){
     const dateJavascript = new Date();
     const year = dateJavascript.getFullYear();
@@ -101,7 +104,7 @@ class BookingSystemBox extends Component {
           foundBooking = true;
         }
       })
-      if(foundBooking == false){
+      if(foundBooking === false){
         coversData.push(0);
       } else {
         coversData.push(total);
@@ -109,7 +112,6 @@ class BookingSystemBox extends Component {
     })
     return coversData;
   } 
-
   setChartData(){
       const coversArray = this.sortCoverData();
       this.setState({
@@ -139,9 +141,10 @@ class BookingSystemBox extends Component {
     return (
       <div>
 
+        <h1>Bookings</h1>
         <Router>
         <Fragment>
-        <NavBar />
+            <NavBar />
         <Switch>
 
           <Route exact path="/">
@@ -151,6 +154,7 @@ class BookingSystemBox extends Component {
             </div>
           </Route>
 
+.
           <Route exact path="/bookings">
               <SearchBar className="search-bar" setSearchedDate={this.setSearchedDate} />
               <Chart chartData={this.state.chartdata} />
@@ -159,7 +163,7 @@ class BookingSystemBox extends Component {
 
           <Route exact path="/bookings/:id" render={(props) => {
               const booking = this.findBookingById(props.match.params.id);
-              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById}/>
+              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById} bookings={this.state.bookings}/>
           }}/>
           
           <Route exact path="/bookings/:id/edit" render={(props) => {
@@ -168,11 +172,13 @@ class BookingSystemBox extends Component {
               return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
           }} />
 
-          <Route path="/newbooking" component={NewBookingBox} />
+
+          <Route path="/newbooking" component={NewBookingBox}/>
             
         </Switch>
-      </Fragment>
-    </Router>
+        </Fragment>
+        </Router>
+
 
       </div>
     )

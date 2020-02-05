@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../../App.css';
-import { Line, Pie, Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 
 class Chart extends Component {
