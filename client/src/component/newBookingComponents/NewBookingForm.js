@@ -53,12 +53,20 @@ class NewBookingForm extends Component {
     }
 
     render() {
+        
+        const availableTimes = this.props.times.map(time => {
+            return <option value={time} key={time}>{time}</option>
+        })
+
         return (
         <div>
         <h3>New Booking</h3>
         <form onSubmit={this.handleSubmitBooking}>
             <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
-            <input type="time" step="900" name="time" onChange={this.handleTime} value={this.state.time}/>
+            <select name="time" onChange={this.handleTime} value={this.state.time}>
+            <option disabled value="">Select Time:</option>
+            {availableTimes}
+            </select>
             <input type="number" placeholder="Adults:" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
             <input type="number" placeholder="Children:" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
             <button type="submit">Save Booking</button>

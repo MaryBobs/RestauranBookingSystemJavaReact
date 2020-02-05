@@ -6,7 +6,8 @@ const ExistingCustomers = (props) => {
             <option
             value={customer.id}
             key={customer.id}>
-                {customer.lastName}
+                {customer.lastName} {" "}
+                {customer.firstName}
             </option>
         )
     })
@@ -24,3 +25,5 @@ const ExistingCustomers = (props) => {
 }
 
 export default ExistingCustomers;
+
+

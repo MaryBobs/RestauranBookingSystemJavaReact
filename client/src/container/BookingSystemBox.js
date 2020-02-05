@@ -18,9 +18,9 @@ class BookingSystemBox extends Component {
       bookings: [],
       filteredBookings: [],
       searchedDate: "",
-      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",],
-      barchartdata: []
-      
+      chartdata: {},
+      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]
+
     }
 
     this.deleteBookingById = this.deleteBookingById.bind(this);
@@ -58,6 +58,7 @@ class BookingSystemBox extends Component {
           window.location = "/bookings"
       })
   }
+  
   getTodayDate(){
     const dateJavascript = new Date();
     const year = dateJavascript.getFullYear();
@@ -98,7 +99,7 @@ class BookingSystemBox extends Component {
           foundBooking = true;
         }
       })
-      if(foundBooking == false){
+      if(foundBooking === false){
         coversData.push(0);
       } else {
         coversData.push(total);
@@ -137,7 +138,7 @@ class BookingSystemBox extends Component {
         <h1>Bookings</h1>
         <Router>
         <Fragment>
-        <NavBar />
+            <NavBar />
         <Switch>
 .
           <Route exact path="/bookings">
@@ -157,10 +158,13 @@ class BookingSystemBox extends Component {
               return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
           }} />
 
-          <Route path="/newbooking" component={NewBookingBox} />
+
+          <Route path="/newbooking" component={NewBookingBox}/>
+            
         </Switch>
-      </Fragment>
-    </Router>  
+        </Fragment>
+        </Router>
+
 
       </div>
     )

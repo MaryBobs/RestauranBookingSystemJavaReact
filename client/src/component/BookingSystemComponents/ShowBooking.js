@@ -8,7 +8,7 @@ import BarChart from './BarChart';
 const ShowBooking = ({booking, deleteBooking, barchartdata, bookings}) => {
 
     if (!booking) {
-        return "kill me"
+        return "Loading"
     }
 
     function deleteThisBooking(){
