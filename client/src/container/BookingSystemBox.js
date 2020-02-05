@@ -9,6 +9,7 @@ import Chart from '../component/BookingSystemComponents/Chart';
 import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
 import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
+import BarChart from '../component/BookingSystemComponents/BarChart.js';
 
 
 class BookingSystemBox extends Component {
@@ -121,7 +122,6 @@ class BookingSystemBox extends Component {
     })
     return coversData;
   } 
-
   setChartData(){
       const coversArray = this.sortCoverData();
       this.setState({
@@ -152,12 +152,12 @@ class BookingSystemBox extends Component {
   render() {
     return (
       <div>
-        <h1>Upcoming Bookings</h1>
+        <h1>Bookings</h1>
         <Router>
         <Fragment>
             <NavBar />
         <Switch>
-
+.
           <Route exact path="/bookings">
               <SearchBar setSearchedDate={this.setSearchedDate}/>
               <BookingPage bookings={this.state.filteredBookings} />
@@ -166,7 +166,7 @@ class BookingSystemBox extends Component {
 
           <Route exact path="/bookings/:id" render={(props) => {
               const booking = this.findBookingById(props.match.params.id);
-              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById} getBooking={this.getBooking}/>
+              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById} bookings={this.state.bookings}/>
           }}/>
           
           <Route exact path="/bookings/:id/edit" render={(props) => {
@@ -187,6 +187,7 @@ class BookingSystemBox extends Component {
         </Switch>
         </Fragment>
         </Router>
+
 
       </div>
     )
