@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { Bar } from 'react-chartjs-2';
+
 
 
 const ShowBooking = ({booking, deleteBooking}) => {
@@ -24,6 +26,14 @@ const ShowBooking = ({booking, deleteBooking}) => {
             <h3>Contact Number: {booking.customer.phoneNumber}</h3>
             <button onClick={deleteThisBooking}>Delete</button>
             <Link to={`/bookings/${booking.id}/edit`}><button>Edit</button></Link>
+            <div className="BarChart" style={{position: "relative", width: 500, height:550}}> 
+            <Bar 
+            
+
+
+
+            /></div>
+           
         </div>
     )
 }
