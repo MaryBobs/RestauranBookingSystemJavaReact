@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ShowBooking from './ShowBooking';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const BookingTable = (props) => {
     if (props.bookings.length === 0) return null;
