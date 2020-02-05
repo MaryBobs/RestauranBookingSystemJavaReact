@@ -67,8 +67,10 @@ class NewBookingForm extends Component {
             <option disabled value="">Select Time:</option>
             {availableTimes}
             </select>
-            <input type="number" placeholder="Adults:" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
-            <input type="number" placeholder="Children:" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
+            <label>Adults:</label>
+            <input type="number" min="0" max="8" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
+            <label>Children:</label>
+            <input type="number" min="0" max="8" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
             <button type="submit">Save Booking</button>
         </form>
         <p>{this.props.bookedCustomer.id}</p>
