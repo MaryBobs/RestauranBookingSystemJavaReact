@@ -63,7 +63,6 @@ class NewBookingForm extends Component {
         <h3>New Booking</h3>
         <form onSubmit={this.handleSubmitBooking}>
             <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
-            <input type="time" step="900" name="time" onChange={this.handleTime} value={this.state.time}/>
             <select defaultValue="" name="time" onChange={this.handleTime} value={this.state.time}>
             <option disabled value="">Select Time:</option>
             {availableTimes}

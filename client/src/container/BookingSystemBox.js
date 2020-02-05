@@ -156,7 +156,7 @@ class BookingSystemBox extends Component {
               return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
           }} />
 
-          <Route path="/newbooking" component={NewBookingBox} />
+          <Route path="/newbooking" component={NewBookingBox}/>
             
         </Switch>
       </Fragment>
