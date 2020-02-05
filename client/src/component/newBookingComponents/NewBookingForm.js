@@ -53,7 +53,7 @@ class NewBookingForm extends Component {
     }
 
     render() {
-        return (
+        return (   
         <div>
         <h3 className="new-customer-title">New Booking</h3>
         <form className="new-customer-form" onSubmit={this.handleSubmitBooking}>
@@ -62,9 +62,12 @@ class NewBookingForm extends Component {
             <input type="number" placeholder="Adults:" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
             <input type="number" placeholder="Children:" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
             <button className="new-booking-btn" type="submit">Save Booking</button>
+            
         </form>
         <p>{this.props.bookedCustomer.id}</p>
         </div>
+
+        
     )
 }
 }

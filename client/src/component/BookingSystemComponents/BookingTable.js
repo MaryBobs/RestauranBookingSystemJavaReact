@@ -25,8 +25,6 @@ const BookingTable = (props) => {
 
         
     return(
-        
-
         <>
             <table className="table table-hover" id="booking-table">
             <thead>

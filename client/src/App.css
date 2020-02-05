@@ -22,13 +22,12 @@ html, body, div, p, ul, li {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
 
 
 .nav {
-  background: #000;
+  background: rgb(51, 49, 49);
   height: 60px; 
 }
 
@@ -43,12 +42,17 @@ html, body, div, p, ul, li {
 
 
 .nav li:hover {
-  background: red;
+  background: rgb(27, 26, 26);
   transition: background .3s;
 }
 
 
 .nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-link:hover{
   color: #fff;
   text-decoration: none;
 }
@@ -67,6 +71,34 @@ html, body, div, p, ul, li {
   text-decoration: none;
   list-style: none;
 }
+
+/* show booking */
+
+.booking-item{
+  margin-left: 30px;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.booking-item-container{
+  margin-top: 30px;
+}
+.booking-item-btn{
+  margin-left: 30px;
+  width: 100px;
+}
+
+/* edit booking */
+.edit-booking-heading{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.edit-booking-form{
+  margin-left: 30px;
+}
+
 
 /* new customer */
 .existing-customers{
