@@ -20,7 +20,6 @@ const ShowBooking = ({booking, deleteBooking, barchartdata, bookings}) => {
     
     return (
         <div className="booking-container">
-            <h3 className="booking-item">ID: {booking.id}</h3>
             <h3 className="booking-item">Date: {booking.date}</h3>
             <h3 className="booking-item">Time: {booking.time}</h3>
             <h3 className="booking-item">Covers: Kids: {booking.kidsCovers}  Adults: {booking.adultsCovers}</h3>
