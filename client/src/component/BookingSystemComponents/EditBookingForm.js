@@ -40,9 +40,6 @@ class EditBookingForm extends Component {
             <form className="edit-booking-form" onSubmit={this.handleSubmit}>
                 <label>Date:</label>
                 <input required type="date" name="date" defaultValue={this.props.booking.date}/>
-                {/* <label>Time:</label>
-                <input required type="time" step="900" name="time" defaultValue={this.props.booking.time}/> */}
-
                 <select required name="time" defaultValue={this.props.booking.time}>
                 <option disabled value="">Select Time:</option>
                  {availableTimes}
