@@ -10,6 +10,12 @@ import EditBookingForm from '../component/BookingSystemComponents/EditBookingFor
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
 import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
 import BarChart from '../component/BookingSystemComponents/BarChart.js';
+import '../App.css';
+import About from '../component/About';
+import UpcomingEvents from '../component/BookingSystemComponents/UpcomingEvents.js';
+
+
+
 
 
 class BookingSystemBox extends Component {
@@ -152,16 +158,25 @@ class BookingSystemBox extends Component {
   render() {
     return (
       <div>
+
         <h1>Bookings</h1>
         <Router>
         <Fragment>
             <NavBar />
         <Switch>
+
+          <Route exact path="/">
+            <div className="home-container">
+            <About/>
+            <UpcomingEvents/>
+            </div>
+          </Route>
+
 .
           <Route exact path="/bookings">
-              <SearchBar setSearchedDate={this.setSearchedDate}/>
+              <SearchBar className="search-bar" setSearchedDate={this.setSearchedDate} />
+              <Chart chartData={this.state.chartdata} />
               <BookingPage bookings={this.state.filteredBookings} />
-              <Chart chartData={this.state.chartdata}/>
           </Route>
 
           <Route exact path="/bookings/:id" render={(props) => {

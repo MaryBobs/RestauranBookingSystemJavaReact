@@ -30,20 +30,20 @@ class EditBookingForm extends Component {
                 return "Loading!"
             }
         return(
-            <div>
-            <h1>Edit Booking</h1>
-            <form onSubmit={this.handleSubmit}>
+        <div>
+            <h2 className="edit-booking-heading">Edit Booking</h2>
+            <form className="edit-booking-form" onSubmit={this.handleSubmit}>
                 <label>Date:</label>
-            <input type="date" name="date" defaultValue={this.props.booking.date}/>
-            <label>Time:</label>
-            <input type="time" step="900" name="time" defaultValue={this.props.booking.time}/>
-            <label>Adults Covers:</label>
-            <input type="number" placeholder="Adults:" name="adultsCovers" defaultValue={this.props.booking.adultsCovers}/>
-            <label>Kids Covers:</label>
-            <input type="number" placeholder="Children:" name="kidsCovers" defaultValue={this.props.booking.kidsCovers}/>
-            <button type="submit">Save Changes to Booking</button>
-        </form>
-            </div>
+                <input type="date" name="date" defaultValue={this.props.booking.date}/>
+                <label>Time:</label>
+                <input type="time" step="900" name="time" defaultValue={this.props.booking.time}/>
+                <label>Adults Covers:</label>
+                <input type="number" placeholder="Adults:" name="adultsCovers" defaultValue={this.props.booking.adultsCovers}/>
+                <label>Kids Covers:</label>
+                <input type="number" placeholder="Children:" name="kidsCovers" defaultValue={this.props.booking.kidsCovers}/>
+                <button type="submit">Save Changes to Booking</button>
+            </form>
+        </div>
         )
         }
 }
