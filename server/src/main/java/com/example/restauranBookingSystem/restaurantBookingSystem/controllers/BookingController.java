@@ -35,30 +35,32 @@ public class BookingController {
 
     @GetMapping(value = "byDate/{date}")
     public List<Booking> findBokkingsByDate(@PathVariable String date){
+        System.out.println(date);
         String[] arrayOfString = date.split("-", 3);
         int year = Integer.parseInt(arrayOfString[0]) - 1900;
         int month = Integer.parseInt(arrayOfString[1]) - 1;
         int day = Integer.parseInt(arrayOfString[2]);
         Date searchByDate = new Date(year, month, day);
-        return bookingRepository.findByDate(LocalDate.of(year, month, day));
+        return bookingRepository.findByDate(LocalDate.parse(date));
     }
 
-    @GetMapping(value = "byDate/{date}/coversPerHour/{hour}")
-    public int coversPerHour(@PathVariable String date, @PathVariable String hour){
-        String[] arrayOfString = date.split("-", 3);
-        int year = Integer.parseInt(arrayOfString[0]) - 1900;
-        int month = Integer.parseInt(arrayOfString[1]) - 1;
-        int day = Integer.parseInt(arrayOfString[2]);
-        Date searchByDate = new Date(year, month, day);
-        List<Booking> bookings = bookingRepository.findByDate(LocalDate.of(year, month, day));
-        int total = 0;
-        System.out.println(bookings);
-        for(Booking booking : bookings){
-            if(booking.getTime().substring(0,2).equals(hour.substring(0,2))){
-                total += booking.getTotalCovers();
-            }
-        }
-        return total;
+    @GetMapping(value = "byDate/{date}/coversPerHour/{hour}/covers/{covers}")
+    public boolean coversPerHour(@PathVariable String date, @PathVariable String hour, @PathVariable String covers){
+        return bookingService.isDayAndTimeAvailable(date, hour, covers);
+//        String[] arrayOfString = date.split("-", 3);
+//        int year = Integer.parseInt(arrayOfString[0]) - 1900;
+//        int month = Integer.parseInt(arrayOfString[1]) - 1;
+//        int day = Integer.parseInt(arrayOfString[2]);
+//        Date searchByDate = new Date(year, month, day);
+//        List<Booking> bookings = bookingRepository.findByDate(LocalDate.of(year, month, day));
+//        int total = 0;
+//        System.out.println(bookings);
+//        for(Booking booking : bookings){
+//            if(booking.getTime().substring(0,2).equals(hour.substring(0,2))){
+//                total += booking.getTotalCovers();
+//            }
+//        }
+//        return total < ;
     }
 
 

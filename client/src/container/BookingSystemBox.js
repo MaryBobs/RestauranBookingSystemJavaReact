@@ -60,8 +60,10 @@ class BookingSystemBox extends Component {
     const dateJavascript = new Date();
     const year = dateJavascript.getFullYear();
     const month = dateJavascript.getMonth() + 1;
+    const checkedMonth = month < 10 ? "0" + month : month;
     const date = dateJavascript.getDate();
-    const formattedDate = year + "-" + month + "-" + date;
+    const checkedDate = date < 10 ? "0" + date : date;
+    const formattedDate = year + "-" + checkedMonth + "-" + checkedDate;
     return formattedDate;
   }
 

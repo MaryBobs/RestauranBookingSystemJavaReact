@@ -47,7 +47,7 @@ class NewBookingForm extends Component {
             time: this.state.time,
             kidsCovers: this.state.kidsCovers,
             adultsCovers: this.state.adultsCovers,
-            customer: 'http://localhost:8080/customers/'+this.state.bookingCustomer
+            customer: this.state.bookingCustomer
         }
     this.props.addBooking(newBooking);
     }

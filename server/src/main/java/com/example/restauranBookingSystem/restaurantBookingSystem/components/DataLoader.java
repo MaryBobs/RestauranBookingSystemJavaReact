@@ -74,49 +74,49 @@ public class DataLoader implements ApplicationRunner {
 
 //        Create Bookings
 
-        Booking booking1 = new Booking(2,3, customer1, 120, 1,5, "12:00");
+        Booking booking1 = new Booking(2,3, customer1, 2020, 2,5, "12:00");
         bookingRepository.save(booking1);
 
-        Booking booking2 = new Booking(0,5, customer2, 120, 1,5,"17:00");
+        Booking booking2 = new Booking(0,5, customer2, 2020, 2,5,"17:00");
         bookingRepository.save(booking2);
 
-        Booking booking3 = new Booking(12,3, customer3, 120, 1,5,"14:00");
+        Booking booking3 = new Booking(12,3, customer3, 2020, 2,5,"14:00");
         bookingRepository.save(booking3);
 
-        Booking booking4 = new Booking(6,3, customer4, 120, 1,5,"17:30");
+        Booking booking4 = new Booking(6,3, customer4, 2020, 2,5,"17:30");
         bookingRepository.save(booking4);
 
-        Booking booking5 = new Booking(1,3, customer5, 120, 1,6,"12:30");
+        Booking booking5 = new Booking(1,3, customer5, 2020, 2,6,"12:30");
         bookingRepository.save(booking5);
 
-        Booking booking6 = new Booking(2,3, customer6, 120, 1,6,"13:30");
+        Booking booking6 = new Booking(2,3, customer6, 2020, 2,6,"13:30");
         bookingRepository.save(booking6);
 
-        Booking booking7 = new Booking(0,3, customer7, 120, 1,6,"16:15");
+        Booking booking7 = new Booking(0,3, customer7, 2020, 2,6,"16:15");
         bookingRepository.save(booking7);
 
-        Booking booking8 = new Booking(0,5, customer8, 120, 1,6,"19:00");
+        Booking booking8 = new Booking(0,5, customer8, 2020, 2,6,"19:00");
         bookingRepository.save(booking8);
 
-        Booking booking9 = new Booking(1,7, customer9, 120, 1,6,"19:30");
+        Booking booking9 = new Booking(1,7, customer9, 2020, 2,6,"19:30");
         bookingRepository.save(booking9);
 
-        Booking booking10 = new Booking(4,11, customer10, 120, 1,7,"12:30");
+        Booking booking10 = new Booking(4,11, customer10, 2020, 2,7,"12:30");
         bookingRepository.save(booking10);
 
-        Booking booking11 = new Booking(0,2, customer11, 120, 1,7,"12:15");
+        Booking booking11 = new Booking(0,2, customer11, 2020, 2,7,"12:15");
         bookingRepository.save(booking11);
 
-        Booking booking12 = new Booking(0,4, customer12, 120, 1,7,"13:45");
+        Booking booking12 = new Booking(0,4, customer12, 2020, 2,7,"13:45");
         bookingRepository.save(booking12);
 
-        Booking booking13 = new Booking(0,7, customer13, 120, 1,7,"19:30");
+        Booking booking13 = new Booking(0,7, customer13, 2020, 2,7,"19:30");
         bookingRepository.save(booking13);
 
-        Booking booking14 = new Booking(1,5, customer14, 120, 1,7,"20:15");
+        Booking booking14 = new Booking(1,5, customer14, 2020, 2,7,"20:15");
         bookingRepository.save(booking14);
 
-        Booking booking15 = new Booking(0,2, customer15, 120, 1,7,"17:15");
+        Booking booking15 = new Booking(0,2, customer15, 2020, 2,7,"17:15");
         bookingRepository.save(booking15);
 
     }
