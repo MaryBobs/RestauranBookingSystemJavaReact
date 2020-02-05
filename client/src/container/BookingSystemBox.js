@@ -18,9 +18,7 @@ class BookingSystemBox extends Component {
       filteredBookings: [],
       searchedDate: "",
       chartdata: [],
-      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",],
-      times: ["12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45",
-      "15:00", "15:15", "15:30", "15:45","16:00", "16:15", "16:30", "16:45","17:00", "17:15", "17:30", "17:45"]
+      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",]
     }
 
     this.deleteBookingById = this.deleteBookingById.bind(this);
@@ -158,7 +156,7 @@ class BookingSystemBox extends Component {
               return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
           }} />
 
-          <Route path="/newbooking" component={NewBookingBox} times={this.state.times}/>
+          <Route path="/newbooking" component={NewBookingBox} />
             
         </Switch>
       </Fragment>
