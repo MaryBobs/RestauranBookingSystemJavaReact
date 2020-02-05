@@ -133,7 +133,7 @@ class BookingSystemBox extends Component {
   render() {
     return (
       <div>
-        <h1>Upcoming Bookings</h1>
+        <h1>Bookings</h1>
         <Router>
         <Fragment>
         <NavBar />
@@ -161,6 +161,26 @@ class BookingSystemBox extends Component {
         </Switch>
       </Fragment>
     </Router>
+          <div>
+          <h2>Upcoming Events</h2>
+            <ul>
+              <li>Margarita Mondays</li>
+              <li>Taco Tuesdays</li>
+              <li>Wing-a-long Wednesdays</li>
+              <li>Thirsty Thursdays</li>
+              <li>Frisky Fridays</li>
+              <li>Shut-early Saturdays</li>
+            </ul>
+
+          </div>
+          <footer>
+            <br></br>
+            <p>Hosted by: Mary and friends</p>
+            <p>Contact information: <a href="mailto:someone@example.com">
+            someone@example.com</a>.</p>
+            <p>Address: 37 Castle Terrace, Edinburgh EH1 2EL</p>
+          </footer>
+          
 
       </div>
     )
