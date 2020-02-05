@@ -28,11 +28,22 @@ const ShowBooking = ({booking, deleteBooking}) => {
             <Link to={`/bookings/${booking.id}/edit`}><button>Edit</button></Link>
             <div className="BarChart" style={{position: "relative", width: 500, height:550}}> 
             <Bar 
+            data= {this.props.barchartdata}
             
+            options={{ 
+                title:{
+                    display: true,
+                    text: 'Number of visits',
+                    fontSize: 25
 
-
-
-            /></div>
+                },
+                legend:{
+                    display: true, 
+                    position: 'right'
+                }
+                 }}
+            />
+            </div>
            
         </div>
     )

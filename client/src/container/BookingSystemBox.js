@@ -18,7 +18,9 @@ class BookingSystemBox extends Component {
       filteredBookings: [],
       searchedDate: "",
       chartdata: [],
-      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",]
+      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",],
+      barchartdata = []
+      
     }
 
     this.deleteBookingById = this.deleteBookingById.bind(this);
@@ -161,39 +163,9 @@ class BookingSystemBox extends Component {
         </Switch>
       </Fragment>
     </Router>
-          <div className="about">
-          <h2>About us</h2>
-          <h4> Who We Are</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante ex, vulputate ut ex nec, molestie ultrices lorem. Mauris vestibulum mollis mauris, ac placerat magna scelerisque et. In quis arcu non dui luctus laoreet semper in massa. Cras lacinia at mauris a tincidunt. Fusce ultrices ex in pretium rutrum. Morbi eleifend, purus eget pulvinar imperdiet, mi lectus mollis diam, vitae sodales urna neque ac arcu. Nulla dictum sed tellus eu lobortis. Fusce eu posuere nisl, vel elementum justo. Nunc sit amet sem in est consectetur accumsan. Nunc vel orci suscipit, molestie risus vel, pretium sem.</p>
-          <h4>Our Values</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante ex, vulputate ut ex nec, molestie ultrices lorem. Mauris vestibulum mollis mauris, ac placerat magna scelerisque et. In quis arcu non dui luctus laoreet semper in massa. Cras lacinia at mauris a tincidunt. Fusce ultrices ex in pretium rutrum. Morbi eleifend, purus eget pulvinar imperdiet, mi lectus mollis diam, vitae sodales urna neque ac arcu. Nulla dictum sed tellus eu lobortis. Fusce eu posuere nisl, vel elementum justo. Nunc sit amet sem in est consectetur accumsan. Nunc vel orci suscipit, molestie risus vel, pretium sem.</p>
-          <h4>Our Vision</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante ex, vulputate ut ex nec, molestie ultrices lorem. Mauris vestibulum mollis mauris, ac placerat magna scelerisque et. In quis arcu non dui luctus laoreet semper in massa. Cras lacinia at mauris a tincidunt. Fusce ultrices ex in pretium rutrum. Morbi eleifend, purus eget pulvinar imperdiet, mi lectus mollis diam, vitae sodales urna neque ac arcu. Nulla dictum sed tellus eu lobortis. Fusce eu posuere nisl, vel elementum justo. Nunc sit amet sem in est consectetur accumsan. Nunc vel orci suscipit, molestie risus vel, pretium sem.</p>
-          </div>
-          <div className="Upcoming">
-          <h2>Upcoming Events</h2>
-            <ul>
-              <li>Margarita Mondays</li>
-              <img src="https://i.pinimg.com/originals/33/8f/8a/338f8a9f22fe8a1bdfd70af921537bab.jpg" style={{width:300, height:300}}></img>
-              <li>Taco Tuesdays</li>
-              <img src="https://am21.akamaized.net/tms/cnt/uploads/gallery/jurassic-sweet/jurassicsweet2.jpg" style={{width:300, height:300}}></img>
-              <li>Wing-a-long Wednesdays</li>
-              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/7c995722320959.563150a33de42.jpg" style={{width:300, height:300}}></img>
-              <li>Thirsty Thursdays</li>
-              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e5432622320959.563162b7a35d4.jpg" style={{width:300, height:300}}></img>
-              <li>Frisky Fridays</li>
-              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e5432622320959.563162b7a35d4.jpg" style={{width:300, height:300}}></img>
-              <li>Shut-early Saturdays</li>
-              <img src="https://laughingsquid.com/wp-content/uploads/2015/01/2d52ac400a353ffde6f2c12566d9ff36.jpg" style={{width:300, height:300}}></img>
-            </ul>
-
-          </div>
-          <footer style={{backgroundColor: "lightgrey"}}>
-            <br></br>
-            <p>Hosted by: Mary and friends<br></br>Contact information: <a href="mailto:someone@example.com">
-            someone@example.com</a>. <br></br>Address: 37 Castle Terrace, Edinburgh EH1 2EL</p>
-           
-          </footer>
+          
+         
+          
           
 
       </div>
