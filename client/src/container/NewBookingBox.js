@@ -4,8 +4,6 @@ import NewCustomerForm from '../component/newBookingComponents/NewCustomerForm';
 import NewBookingForm from '../component/newBookingComponents/NewBookingForm';
 import Request from '../helpers/request';
 import './NewBookingBox.css';
-import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
-import BookingUnsuccessful from '../component/newBookingComponents/BookingUnsuccessful';
 
 
 

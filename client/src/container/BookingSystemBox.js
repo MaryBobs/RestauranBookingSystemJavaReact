@@ -10,7 +10,6 @@ import EditBookingForm from '../component/BookingSystemComponents/EditBookingFor
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
 import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
 import BookingUnsuccessful from '../component/newBookingComponents/BookingUnsuccessful';
-import BarChart from '../component/BookingSystemComponents/BarChart.js';
 import '../App.css';
 import About from '../component/About';
 import UpcomingEvents from '../component/BookingSystemComponents/UpcomingEvents.js';
