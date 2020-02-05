@@ -56,6 +56,7 @@ class BookingSystemBox extends Component {
           window.location = "/bookings"
       })
   }
+  
   getTodayDate(){
     const dateJavascript = new Date();
     const year = dateJavascript.getFullYear();
@@ -96,7 +97,7 @@ class BookingSystemBox extends Component {
           foundBooking = true;
         }
       })
-      if(foundBooking == false){
+      if(foundBooking === false){
         coversData.push(0);
       } else {
         coversData.push(total);
@@ -136,7 +137,7 @@ class BookingSystemBox extends Component {
         <h1>Upcoming Bookings</h1>
         <Router>
         <Fragment>
-        <NavBar />
+            <NavBar />
         <Switch>
 
           <Route exact path="/bookings">
@@ -159,8 +160,8 @@ class BookingSystemBox extends Component {
           <Route path="/newbooking" component={NewBookingBox}/>
             
         </Switch>
-      </Fragment>
-    </Router>
+        </Fragment>
+        </Router>
 
       </div>
     )
