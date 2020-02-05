@@ -29,6 +29,7 @@ class BookingSystemBox extends Component {
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
+    this.getNumofVisits = this.getNumofVisits.bind(this);
   }
 
   componentDidMount() {
@@ -108,9 +109,7 @@ class BookingSystemBox extends Component {
   } 
 
 
-  // getNumOfVisit(){
-  //  return [5];
-  // }
+
 
 
   setChartData(){
@@ -136,6 +135,27 @@ class BookingSystemBox extends Component {
               ]
           }
       })
+  }
+
+  getNumofVisits(id){
+    const count = this.state.bookings.filter(booking => booking.customer.id === id).size();
+    console.log(count)
+    return count
+    // const bookingId = this.state.bookings.map(
+    //   booking => (
+    //     booking.customer.id
+    //   ) 
+    // )
+    //   this.state.bookings.count()
+
+    //map bookings to get ids out. 
+    // check frequency of ids. array.count(num ) 
+
+
+    // state.booking 
+    
+    
+    // booking.customer.id
   }
 
   // setBarChartData(){
@@ -181,7 +201,7 @@ class BookingSystemBox extends Component {
 
           <Route exact path="/bookings/:id" render={(props) => {
               const booking = this.findBookingById(props.match.params.id);
-              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById}/>
+              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById} bookings={this.state.bookings}/>
           }}/>
           
           <Route exact path="/bookings/:id/edit" render={(props) => {

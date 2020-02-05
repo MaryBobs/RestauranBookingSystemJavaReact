@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import { Bar } from 'react-chartjs-2';
 import BarChart from './BarChart';
 
 
 
-const ShowBooking = ({booking, deleteBooking, barchartdata}) => {
+const ShowBooking = ({booking, deleteBooking, barchartdata, bookings}) => {
 
     if (!booking) {
         return "kill me"
@@ -27,8 +27,8 @@ const ShowBooking = ({booking, deleteBooking, barchartdata}) => {
             <h3>Contact Number: {booking.customer.phoneNumber}</h3>
             <button onClick={deleteThisBooking}>Delete</button>
             <Link to={`/bookings/${booking.id}/edit`}><button>Edit</button></Link>
-            <div className="BarChart" style={{position: "relative", width: 500, height:550}}> 
             
+            <div className="BarChart" style={{position: "relative", width: 500, height:550}}> 
             <BarChart/>
             </div>
            
