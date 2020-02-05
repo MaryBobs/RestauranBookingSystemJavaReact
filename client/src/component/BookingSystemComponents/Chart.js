@@ -20,7 +20,7 @@ class Chart extends Component {
                 options={{ 
                     title:{
                         display: true,
-                        text: 'Covers per day',
+                        text: 'Covers per hour',
                         fontSize: 25
 
                     },

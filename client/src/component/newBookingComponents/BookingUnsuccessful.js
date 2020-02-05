@@ -4,7 +4,9 @@ const BookingUnsuccessful = () => {
 
     return(
         <div>
-        <h1>Oooops!!</h1>
+        <h1>Cannot Save Booking</h1>
+        <h2>Sorry there is not a table available at that time</h2>
+        
         </div>
         
     )
