@@ -19,7 +19,8 @@ class BookingSystemBox extends Component {
       filteredBookings: [],
       searchedDate: "",
       chartdata: {},
-      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]
+      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"],
+      confirmedBooking: {}
     }
 
     this.deleteBookingById = this.deleteBookingById.bind(this);
@@ -28,6 +29,7 @@ class BookingSystemBox extends Component {
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
+    this.handleThisBooking = this.handleThisBooking.bind(this);
   }
 
   componentDidMount() {
@@ -64,6 +66,11 @@ class BookingSystemBox extends Component {
       .then(() => {
           window.location = "/bookings"
       })
+  }
+
+  handleThisBooking(booking){
+    this.setState({confirmedBooking: booking})
+    console.log({booking})
   }
   
   getTodayDate(){
@@ -171,11 +178,12 @@ class BookingSystemBox extends Component {
             <Route exact path="/bookings/:id/confirm" render={(props) => {
               const id = props.match.params.id
               const booking = this.findBookingById(id);
-              return <ConfirmBooking booking={booking}/>
+              return <ConfirmBooking booking={booking} confirmedBooking={this.state.confirmedBooking} />
           }} />
 
-          <Route path="/newbooking" component={NewBookingBox}/>
-            
+          <Route path="/newbooking" render={() => {
+              return <NewBookingBox handleThisBooking={this.handleThisBooking} booking={this.state.confirmedBooking}/>
+          }} />
         </Switch>
         </Fragment>
         </Router>

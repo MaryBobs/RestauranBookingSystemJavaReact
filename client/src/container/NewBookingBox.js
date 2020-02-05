@@ -4,6 +4,7 @@ import NewCustomerForm from '../component/newBookingComponents/NewCustomerForm';
 import NewBookingForm from '../component/newBookingComponents/NewBookingForm';
 import Request from '../helpers/request';
 import './NewBookingBox.css';
+import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
 
 
 
@@ -17,7 +18,7 @@ class NewBookingBox extends Component {
             "15:00", "15:15", "15:30", "15:45","16:00", "16:15", "16:30", "16:45","17:00", "17:15", "17:30", "17:45",
             "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45", "20:00", "20:15", "20:30", "20:45",
             "21:00", "21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45",],
-            bookingID: ""
+            conBooking: ""
         }
 
         this.handlePost = this.handlePost.bind(this);
@@ -46,12 +47,14 @@ class NewBookingBox extends Component {
     handleNewBooking(booking) {
         const request = new Request();
         request.post('http://localhost:8080/bookings', booking)
+        .then((booking) => {
+            this.props.handleThisBooking(booking)
+        })
         .then(() => {
-            window.location = `/bookings/${booking.id}/confirm`
+            window.location = `/bookings/${this.props.booking.id}/confirm`
         })
     }
     
-
     handleCustomer(customer) {
         this.setState({bookingCustomer: customer})
         this.visibleExistingCust();
@@ -66,13 +69,6 @@ class NewBookingBox extends Component {
         document.getElementById("booking").style.display = "block";
         document.getElementById("existingCustForm").style.display = "none";
     }
-
-    openModal() {
-        this.setState({ open: true });
-      }
-      closeModal() {
-        this.setState({ open: false });
-      }
 
     render () {
 

@@ -1,8 +1,15 @@
 import React from 'react';
 
-const ConfirmBooking = () => {
+const ConfirmBooking = (props) => {
+
     return(
-        <h1>Succesfull</h1>
+        <div>
+        <h1>Booking Successful!</h1>
+        <h3>{props.confirmedBooking.time}</h3>
+        <h3>{props.confirmedBooking.date}</h3>
+        <h3>{props.confirmedBooking.kidsCovers}</h3>
+        </div>
+        
     )
 }
 
