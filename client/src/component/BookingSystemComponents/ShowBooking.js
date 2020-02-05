@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 
 
 
-const ShowBooking = ({booking, deleteBooking}) => {
+const ShowBooking = ({booking, deleteBooking, barchartdata}) => {
 
     if (!booking) {
         return "kill me"
@@ -27,8 +27,9 @@ const ShowBooking = ({booking, deleteBooking}) => {
             <button onClick={deleteThisBooking}>Delete</button>
             <Link to={`/bookings/${booking.id}/edit`}><button>Edit</button></Link>
             <div className="BarChart" style={{position: "relative", width: 500, height:550}}> 
+            
             <Bar 
-            data= {this.props.barchartdata}
+            data= {barchartdata}
             
             options={{ 
                 title:{

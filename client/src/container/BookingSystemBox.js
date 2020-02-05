@@ -109,6 +109,12 @@ class BookingSystemBox extends Component {
     return coversData;
   } 
 
+
+  getNumOfVisit(){
+    return 1;
+  }
+
+
   setChartData(){
       const coversArray = this.sortCoverData();
       this.setState({
