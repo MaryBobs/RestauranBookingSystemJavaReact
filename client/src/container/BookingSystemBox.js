@@ -159,7 +159,6 @@ class BookingSystemBox extends Component {
     return (
       <div>
 
-        <h1>Bookings</h1>
         <Router>
         <Fragment>
             <NavBar />

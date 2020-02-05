@@ -61,7 +61,7 @@ class NewBookingForm extends Component {
 
         return (
         <div>
-        <h3 className="new-customer-title">New Booking</h3>
+        <h3 className="new-customer-title">Please enter booking details:</h3>
         <form className="new-customer-form" onSubmit={this.handleSubmitBooking}>
             <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
             <select name="time" onChange={this.handleTime} value={this.state.time}>
@@ -72,11 +72,7 @@ class NewBookingForm extends Component {
             <input type="number" min="0" max="8" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
             <label>Children:</label>
             <input type="number" min="0" max="8" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
-            <button type="submit">Save Booking</button>
-            <input type="number" placeholder="Adults:" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
-            <input type="number" placeholder="Children:" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
-            <button className="new-booking-btn" type="submit">Save Booking</button>
-            
+            <button type="submit">Save Booking</button>            
         </form>
         <p>{this.props.bookedCustomer.id}</p>
         
