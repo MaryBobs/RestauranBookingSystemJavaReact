@@ -81,13 +81,13 @@ class NewBookingForm extends Component {
         <div>
         <h3 className="new-customer-title">Please enter booking details:</h3>
         <form className="new-customer-form" onSubmit={this.handleSubmitBooking}>
-            <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
-            <select name="time" onChange={this.handleTime} value={this.state.time}>
+            <input required type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
+            <select required name="time" onChange={this.handleTime} value={this.state.time}>
             <option disabled value="">Select Time:</option>
             {availableTimes}
             </select>
             <label>Adults:</label>
-            <input type="number" min="0" max="8" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
+            <input type="number" min="1" max="8" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
             <label>Children:</label>
             <input type="number" min="0" max="8" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
             <button type="submit">Save Booking</button>            
