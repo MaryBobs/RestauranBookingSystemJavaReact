@@ -1,3 +1,11 @@
 #booking {
-    visibility: hidden;
+    display: none;
+}
+
+#newCustForm {
+    display: inline;
+}
+
+#existingCustForm {
+    display: inline;
 }

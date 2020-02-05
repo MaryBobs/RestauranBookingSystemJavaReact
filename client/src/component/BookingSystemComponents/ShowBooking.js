@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const ShowBooking = ({booking, deleteBooking}) => {
 
     if (!booking) {
-        return "kill me"
+        return "Loading"
     }
 
     function deleteThisBooking(){

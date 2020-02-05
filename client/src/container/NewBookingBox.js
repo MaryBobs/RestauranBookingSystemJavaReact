@@ -20,7 +20,8 @@ class NewBookingBox extends Component {
         this.handlePost = this.handlePost.bind(this);
         this.handleNewBooking = this.handleNewBooking.bind(this);
         this.handleCustomer = this.handleCustomer.bind(this);
-    }
+        this.visibleNewCust = this.visibleNewCust.bind(this)
+;    }
 
     componentDidMount(){
         const request = new Request();
@@ -52,22 +53,24 @@ class NewBookingBox extends Component {
     }
 
     visibleExistingCust() {
-        document.getElementById("booking").style.visibility = "visible";
-        document.getElementById("newCustForm").style.visibility = "hidden";
+        document.getElementById("booking").style.display = "block";
+        document.getElementById("newCustForm").style.display = "none";
       }
 
-    //   visibleNewCust() {
-    //     document.getElementById("booking").style.visibility = "visible";
-    //     document.getElementById("existingCustForm").style.visibility = "hidden";
-    // }
+      visibleNewCust() {
+        document.getElementById("booking").style.display = "block";
+        document.getElementById("existingCustForm").style.display = "none";
+    }
 
     render () {
         return (
             <div>
             <h1>New Booking</h1>
+            <div id="existingCustForm">
             <ExistingCustomers customers={this.state.customers} handleSelectedCustomer={this.handleCustomer}/>
+            </div>
             <div id="newCustForm">
-            <NewCustomerForm addCustomer={this.handlePost}/>
+            <NewCustomerForm addCustomer={this.handlePost} seeForm={this.visibleNewCust}/>
             </div>
             <div id="booking">
             <NewBookingForm addBooking={this.handleNewBooking} bookedCustomer={this.state.bookingCustomer} times={this.state.times}/>
