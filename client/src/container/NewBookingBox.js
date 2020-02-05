@@ -5,6 +5,7 @@ import NewBookingForm from '../component/newBookingComponents/NewBookingForm';
 import Request from '../helpers/request';
 import './NewBookingBox.css';
 import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
+import BookingUnsuccessful from '../component/newBookingComponents/BookingUnsuccessful';
 
 
 
@@ -49,7 +50,7 @@ class NewBookingBox extends Component {
         request.post('http://localhost:8080/bookings/add', booking)
         .then((booking) => {
             if (!booking.id) {
-            window.location = `/bookings`    
+            window.location = `/bookings/confirm/unsuccessful`    
             }
             else {
                 window.location = `/bookings/${booking.id}/confirm`

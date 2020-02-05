@@ -9,6 +9,7 @@ import Chart from '../component/BookingSystemComponents/Chart';
 import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
 import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
+import BookingUnsuccessful from '../component/newBookingComponents/BookingUnsuccessful';
 import BarChart from '../component/BookingSystemComponents/BarChart.js';
 import '../App.css';
 import About from '../component/About';
@@ -195,6 +196,10 @@ class BookingSystemBox extends Component {
               const id = props.match.params.id
               const booking = this.findBookingById(id);
               return <ConfirmBooking booking={booking} confirmedBooking={this.state.confirmedBooking} />
+          }} />
+
+          <Route path="/bookings/confirm/unsuccessful" render={() => {
+            return <BookingUnsuccessful/>
           }} />
 
           <Route path="/newbooking" render={() => {
