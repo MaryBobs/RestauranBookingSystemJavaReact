@@ -192,7 +192,7 @@ class BookingSystemBox extends Component {
           <Route exact path="/bookings/:id/edit" render={(props) => {
               const id = props.match.params.id
               const booking = this.findBookingById(id);
-              return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
+              return <EditBookingForm booking={booking} handleUpdate={this.updateBooking} times={this.state.times}/>
           }} />
 
             <Route exact path="/bookings/:id/confirm" render={(props) => {
