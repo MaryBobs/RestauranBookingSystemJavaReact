@@ -8,6 +8,14 @@ import ShowBooking from '../component/BookingSystemComponents/ShowBooking';
 import Chart from '../component/BookingSystemComponents/Chart';
 import EditBookingForm from '../component/BookingSystemComponents/EditBookingForm';
 import SearchBar from '../component/BookingSystemComponents/SearchBar'
+import ConfirmBooking from '../component/newBookingComponents/ConfirmBooking';
+import BarChart from '../component/BookingSystemComponents/BarChart.js';
+import '../App.css';
+import About from '../component/About';
+import UpcomingEvents from '../component/BookingSystemComponents/UpcomingEvents.js';
+
+
+
 
 
 class BookingSystemBox extends Component {
@@ -17,8 +25,9 @@ class BookingSystemBox extends Component {
       bookings: [],
       filteredBookings: [],
       searchedDate: "",
-      chartdata: [],
-      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",]
+      chartdata: {},
+      hours: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"],
+      confirmedBooking: {}
     }
 
     this.deleteBookingById = this.deleteBookingById.bind(this);
@@ -27,6 +36,7 @@ class BookingSystemBox extends Component {
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
+    this.handleThisBooking = this.handleThisBooking.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +49,14 @@ class BookingSystemBox extends Component {
     return this.state.filteredBookings.find((booking) => {
       return booking.id === parseInt(id)
     });
+  }
+
+  getBooking(booking) {
+      const request = new Request();
+      request.get(booking)
+      .then(() => {
+        window.location = "/bookings"
+      })
   }
 
   deleteBookingById(booking){
@@ -56,6 +74,12 @@ class BookingSystemBox extends Component {
           window.location = "/bookings"
       })
   }
+
+  handleThisBooking(booking){
+    this.setState({confirmedBooking: booking})
+    console.log({booking})
+  }
+  
   getTodayDate(){
     const dateJavascript = new Date();
     const year = dateJavascript.getFullYear();
@@ -98,7 +122,7 @@ class BookingSystemBox extends Component {
           foundBooking = true;
         }
       })
-      if(foundBooking == false){
+      if(foundBooking === false){
         coversData.push(0);
       } else {
         coversData.push(total);
@@ -106,7 +130,6 @@ class BookingSystemBox extends Component {
     })
     return coversData;
   } 
-
   setChartData(){
       const coversArray = this.sortCoverData();
       this.setState({
@@ -132,24 +155,34 @@ class BookingSystemBox extends Component {
       })
   }
 
+  
+
   render() {
     return (
       <div>
-        <h1>Upcoming Bookings</h1>
+
         <Router>
         <Fragment>
-        <NavBar />
+            <NavBar />
         <Switch>
 
+          <Route exact path="/">
+            <div className="home-container">
+            <About/>
+            <UpcomingEvents/>
+            </div>
+          </Route>
+
+.
           <Route exact path="/bookings">
-              <SearchBar setSearchedDate={this.setSearchedDate}/>
+              <SearchBar className="search-bar" setSearchedDate={this.setSearchedDate} />
+              <Chart chartData={this.state.chartdata} />
               <BookingPage bookings={this.state.filteredBookings} />
-              <Chart chartData={this.state.chartdata}/>
           </Route>
 
           <Route exact path="/bookings/:id" render={(props) => {
               const booking = this.findBookingById(props.match.params.id);
-              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById}/>
+              return <ShowBooking booking={booking} deleteBooking={this.deleteBookingById} bookings={this.state.bookings}/>
           }}/>
           
           <Route exact path="/bookings/:id/edit" render={(props) => {
@@ -158,11 +191,19 @@ class BookingSystemBox extends Component {
               return <EditBookingForm booking={booking} handleUpdate={this.updateBooking}/>
           }} />
 
-          <Route path="/newbooking" component={NewBookingBox} />
-            
+            <Route exact path="/bookings/:id/confirm" render={(props) => {
+              const id = props.match.params.id
+              const booking = this.findBookingById(id);
+              return <ConfirmBooking booking={booking} confirmedBooking={this.state.confirmedBooking} />
+          }} />
+
+          <Route path="/newbooking" render={() => {
+              return <NewBookingBox handleThisBooking={this.handleThisBooking} booking={this.state.confirmedBooking}/>
+          }} />
         </Switch>
-      </Fragment>
-    </Router>
+        </Fragment>
+        </Router>
+
 
       </div>
     )

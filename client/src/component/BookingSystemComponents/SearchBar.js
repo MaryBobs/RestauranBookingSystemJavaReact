@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../../App.css';
+
 
 class SearchBar extends Component {
     constructor(props) {
@@ -14,7 +16,9 @@ class SearchBar extends Component {
 
     render() { 
         return ( 
+            <div className="search-bar">
             <input type="date" onChange={this.handleSearchedDate}></input>
+            </div>
          );
     }
 }

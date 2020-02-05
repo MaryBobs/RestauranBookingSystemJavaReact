@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class NewBookingForm extends Component {
     
     constructor(props) {
@@ -71,18 +72,31 @@ class NewBookingForm extends Component {
     }
 
     render() {
+        
+        const availableTimes = this.props.times.map(time => {
+            return <option value={time} key={time}>{time}</option>
+        })
+
         return (
         <div>
-        <h3>New Booking</h3>
-        <form onSubmit={this.handleSubmitBooking}>
+        <h3 className="new-customer-title">Please enter booking details:</h3>
+        <form className="new-customer-form" onSubmit={this.handleSubmitBooking}>
             <input type="date" name="date" onChange={this.handleDate} value={this.state.date}/>
-            <input type="time" step="900" name="time" onChange={this.handleTime} value={this.state.time}/>
-            <input type="number" placeholder="Adults:" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
-            <input type="number" placeholder="Children:" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
-            <button type="submit">Save Booking</button>
+            <select name="time" onChange={this.handleTime} value={this.state.time}>
+            <option disabled value="">Select Time:</option>
+            {availableTimes}
+            </select>
+            <label>Adults:</label>
+            <input type="number" min="0" max="8" name="adultsCovers" onChange={this.handleAdultsCovers} value={this.state.adultsCovers}/>
+            <label>Children:</label>
+            <input type="number" min="0" max="8" name="kidsCovers" onChange={this.handleKidsCovers} value={this.state.kidsCovers}/>
+            <button type="submit">Save Booking</button>            
         </form>
         <p>{this.props.bookedCustomer.id}</p>
+        
         </div>
+
+        
     )
 }
 }

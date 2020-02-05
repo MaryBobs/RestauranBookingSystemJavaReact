@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../App.css';
+
 
 const ExistingCustomers = (props) => {
     const options = props.customers.map(customer => {
@@ -6,7 +8,8 @@ const ExistingCustomers = (props) => {
             <option
             value={customer.id}
             key={customer.id}>
-                {customer.lastName}
+                {customer.lastName} {" "}
+                {customer.firstName}
             </option>
         )
     })
@@ -16,11 +19,15 @@ const ExistingCustomers = (props) => {
     }
     
     return (
-        <select defaultValue="" onChange={handleCustomer}> 
-            <option disabled value="">Enter Customer name:</option>
-            {options}
-        </select>
+        <div className="existing-customers">
+            <select defaultValue="" onChange={handleCustomer}> 
+                <option disabled value="">Enter Customer name:</option>
+                {options}
+            </select>
+        </div>
     )
 }
 
 export default ExistingCustomers;
+
+

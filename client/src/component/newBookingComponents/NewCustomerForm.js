@@ -42,19 +42,20 @@ class NewCustomerForm extends Component {
             email: this.state.email
         }
         this.props.addCustomer(newCustomer);
+        this.props.seeForm();
         }
     
 
     render() {
         return (
         <div>
-        <h2>New Customer</h2>
-        <form onSubmit={this.handleSubmit}>
+        <h2 className="new-customer-title">New Customer</h2>
+        <form className="new-customer-form" onSubmit={this.handleSubmit}>
             <input type="text" placeholder="First Name:" name="firstName" onChange={this.handleFirstName} value={this.state.firstName}/>
             <input type="text" placeholder="Last Name:" name="lastName" onChange={this.handleLastName} value={this.state.lastName}/>
             <input type="number" placeholder="Phone Number:" name="phoneNumber" onChange={this.handlePhoneNumber} value={this.state.phoneNumber}/>
             <input type="email" placeholder="E-mail:" name="email" onChange={this.handleEmail} value={this.state.email}/>
-            <button type="submit">Next</button>
+            <button className="new-booking-btn" type="submit">Next</button>
         </form>
         </div>
     )
