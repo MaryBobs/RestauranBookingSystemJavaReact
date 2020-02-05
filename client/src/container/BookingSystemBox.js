@@ -29,12 +29,14 @@ class BookingSystemBox extends Component {
     this.getSearchedBookings = this.getSearchedBookings.bind(this);
     this.sortCoverData = this.sortCoverData.bind(this);
     this.setChartData = this.setChartData.bind(this);
+    this.setBarChartData = this.setBarChartData.bind(this);
   }
 
   componentDidMount() {
     const formattedDate = this.getTodayDate();
     this.getSearchedBookings(formattedDate);
     this.setChartData();
+    this.setBarChartData();
   }
 
   findBookingById(id) {
@@ -130,6 +132,32 @@ class BookingSystemBox extends Component {
               ]
           }
       })
+  }
+
+  setBarChartData(){
+    const numOfVisit = this.getNumOfVisit();
+    this.setState({
+      barchartdata:{
+          labels: 'visit',
+          datasets: [
+              {   
+                  label: 'Visits',
+                  data: numOfVisit,
+                  backgroundColor:[
+                      'rgba(255, 99, 132, 0.6)',
+                      'rgba(54, 162, 235, 0.6)', 
+                      'rgba(255, 206, 85, 0.6)',
+                      'rgba(75, 192, 192, 0.6)',
+                      'rgba(153, 102, 255, 0.6)',
+                      'rgba(255, 159, 64, 0.6)',
+                      'rgba(255, 99, 132, 0.6)'
+                  ]
+              }
+
+          ]
+      }
+  })
+
   }
 
   render() {
