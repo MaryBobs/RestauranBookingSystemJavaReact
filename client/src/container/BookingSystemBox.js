@@ -161,7 +161,12 @@ class BookingSystemBox extends Component {
         </Switch>
       </Fragment>
     </Router>
-          <div>
+          <div className="about">
+          <h2>About us</h2>
+          
+
+          </div>
+          <div className="Upcoming">
           <h2>Upcoming Events</h2>
             <ul>
               <li>Margarita Mondays</li>
@@ -169,13 +174,13 @@ class BookingSystemBox extends Component {
               <li>Taco Tuesdays</li>
               <img src="https://am21.akamaized.net/tms/cnt/uploads/gallery/jurassic-sweet/jurassicsweet2.jpg" style={{width:300, height:300}}></img>
               <li>Wing-a-long Wednesdays</li>
-              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/7c995722320959.563150a33de42.jpg"></img>
+              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/7c995722320959.563150a33de42.jpg" style={{width:300, height:300}}></img>
               <li>Thirsty Thursdays</li>
-              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e5432622320959.563162b7a35d4.jpg"></img>
+              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e5432622320959.563162b7a35d4.jpg" style={{width:300, height:300}}></img>
               <li>Frisky Fridays</li>
-              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e5432622320959.563162b7a35d4.jpg"></img>
+              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e5432622320959.563162b7a35d4.jpg" style={{width:300, height:300}}></img>
               <li>Shut-early Saturdays</li>
-              <img src="https://laughingsquid.com/wp-content/uploads/2015/01/2d52ac400a353ffde6f2c12566d9ff36.jpg"></img>
+              <img src="https://laughingsquid.com/wp-content/uploads/2015/01/2d52ac400a353ffde6f2c12566d9ff36.jpg" style={{width:300, height:300}}></img>
             </ul>
 
           </div>
