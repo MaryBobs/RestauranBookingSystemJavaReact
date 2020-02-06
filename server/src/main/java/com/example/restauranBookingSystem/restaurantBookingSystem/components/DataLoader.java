@@ -74,7 +74,7 @@ public class DataLoader implements ApplicationRunner {
 
 //        Create Bookings
 
-        Booking booking1 = new Booking(32,17, customer1, 2020, 2,5, "12:00");
+        Booking booking1 = new Booking(9,6, customer1, 2020, 2,5, "12:00");
         bookingRepository.save(booking1);
 
         Booking booking2 = new Booking(0,5, customer2, 2020, 2,5,"14:00");
@@ -107,8 +107,14 @@ public class DataLoader implements ApplicationRunner {
         Booking booking11 = new Booking(0,2, customer11, 2020, 2,7,"12:30");
         bookingRepository.save(booking11);
 
-        Booking booking12 = new Booking(0,4, customer12, 2020, 2,7,"13:45");
+        Booking booking12 = new Booking(8,8, customer12, 2020, 2,7,"16:00");
         bookingRepository.save(booking12);
+
+        Booking booking16 = new Booking(8,8, customer14, 2020, 2,7,"16:15");
+        bookingRepository.save(booking16);
+
+        Booking booking17 = new Booking(8,8, customer6, 2020, 2,7,"16:30");
+        bookingRepository.save(booking17);
 
         Booking booking13 = new Booking(0,7, customer13, 2020, 2,7,"17:30");
         bookingRepository.save(booking13);
