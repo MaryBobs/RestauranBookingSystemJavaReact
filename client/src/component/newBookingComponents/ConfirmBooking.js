@@ -12,7 +12,7 @@ class ConfirmBooking extends Component {
         <div className="successful-booking">
         <h1>Booking Successful!</h1>
         <p>
-        <img src="/tyrannosaurus.jpg"></img>
+        <img alt="thumbs up, booking confirmed" src="/tyrannosaurus.jpg"></img>
         </p>
         {/* <h3>{booking.adultsCovers}</h3> */}
         {/* <h3>{props.confirmedBooking.date}</h3>

@@ -15,7 +15,7 @@ import '../../App.css';
                         <img alt="advert for Taco Tuesdays event" src="https://am21.akamaized.net/tms/cnt/uploads/gallery/jurassic-sweet/jurassicsweet2.jpg" ></img>
                         </li>
                         <li>Wing-a-long Wednesdays
-                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/7c995722320959.563150a33de42.jpg"></img>
+                        <img alt="advert for Wing-a-long event" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/7c995722320959.563150a33de42.jpg"></img>
                         </li>
                     </ul>
                 </div>
